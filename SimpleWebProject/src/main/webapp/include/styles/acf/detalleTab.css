@@ -1,0 +1,83 @@
+
+.title-vacacion{
+	font-size: 13px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.tab-detalle .nav-tabs > li  {
+	width:33.3%; 
+	text-align:center;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.tab-detalle .nav-tabs > li.active > a{ 
+ 	background: #F5F5F5; 
+}
+
+
+.tab-detalle .nav-tabs > li > a:hover{
+	color: #4B81AB;
+	font-weight: bold;
+}
+
+.tab-detalle .nav-tabs > li.active .tab-uno{
+	 font-weight: bold;
+	 color: #0d6e1a;
+}
+
+.tab-detalle .nav-tabs > li.active .tab-dos{
+	 font-weight: bold;
+	 color: #E6AF2E;
+}
+
+.tab-detalle .nav-tabs > li.active .tab-tres{
+	 font-weight: bold;
+	 color: #b82121;
+}
+ 
+.tabla-programada thead{
+	background-color: #0d6e1a;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.tabla-noprogramada thead{
+	background-color: #b82121;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+
+.tabla-parcialmente thead{
+	background-color: #E6AF2E;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.btn-detalleVacacion{
+	color: white;	
+	background-color: #64868E;
+	border-color: #E3DFC8;
+}
+
+.label-noprogramada{
+	background-color: #F5F5F5;
+	color: #b82121;
+	cursor: text;
+	border: 0.5px solid #b82121;
+	font-size: 9px;
+	text-transform: uppercase;
+}
+
+
+.label-programada{
+	background-color: #F5F5F5;
+	color: #0d6e1a;
+	cursor: text;
+	border: 1px solid #0d6e1a;
+	font-size: 9px;
+	text-transform: uppercase;
+}
+

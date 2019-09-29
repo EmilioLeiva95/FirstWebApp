@@ -1,0 +1,1246 @@
+/**----------------------------------------------------------------------**/
+/* DEFINICION DE ESTILOS PARA COMPLEMENTOS DE DISENIO
+/**----------------------------------------------------------------------**/
+/*--------------------------GENERAL----------------------------------*/
+body {
+	/*behavior: url("../../include/styles/csshover3.htc");*/
+	background: #ffffff;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0px;
+}
+
+#iSession{
+	display: inline-block;
+	text-align: right;
+	float: right;
+	vertical-align: top;
+}
+
+#iSession td{
+	text-align: right;
+}
+
+#iSession .ui-label{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+#iSession .ui-readonly{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#logo table{
+	width: 600px;
+	height: 400px;
+	text-align: center;
+}
+
+#iBanner{
+	width: 100%;
+	height: 90px;
+    line-height: 90px;
+    text-align:center;
+	background: url(../../../include/images/design/banner.jpg) no-repeat center;
+	background-color: #ffffff;
+	padding: 0px;
+	margin: 0px;
+}
+
+#iLogout{}
+
+#breadcrumb-detail{
+	font: 14px Arial;
+	font-weight: bold;
+	text-align: left;
+	color: #101055;
+}
+
+
+#footer{}
+
+.ui-gradient{
+	background: url(../../../include/images/design/bg_fallback.png) 0 -50px repeat-x;
+	background: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, rgb(237,237,237)),
+		color-stop(0, rgb(196,196,196))
+	);
+	background: -moz-linear-gradient(
+		center top,
+		rgb(237,237,237),
+		rgb(196,196,196)
+	);
+}
+
+.ui-corner-all { 
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+}
+
+/**-------------------------------LOGIN------------------------------------**/
+#login {
+	margin: 0 auto;
+	width: 1000px;
+	height: 700px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#login .ui-background{
+	background: url(../../../include/images/design/login_mh.jpg) no-repeat center;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+#login .ui-background td{
+	padding-right: 0;
+}
+
+#login .ui-fields{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+	color: #003399;
+	margin: 0;
+	width: 300px;
+	height: 40px;
+	text-align: right;
+	margin-left: 540px;
+	margin-right: 80px;
+	margin-bottom: 5px;
+	margin-top: 60px;
+}
+
+#login .ui-fields td{
+	text-align: left;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 0;
+}
+
+#login .ui-fields .ui-label{
+		text-align: right;
+		color: #ffffff;
+		font-size: 12px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bolder;
+}
+
+#login input[type=text]{
+	background-color: #D4D4DE;
+	width: 200px;
+}
+
+#login input[type=password]{
+	background-color: #D4D4DE;
+	width: 200px;
+}
+
+
+#login input[type=submit]{
+	color: #000064;
+	padding: 0 .5em 0 0;
+	border: solid 1px #5A5EAA;
+	font-weight: bold;
+	font-size: 10px;
+	min-height: 21px;
+	text-align: center;
+	vertical-align: middle;
+	text-shadow: aqua;
+	padding-bottom: 4px;
+	padding-left: 4px;
+}
+
+#login .ui-main-frame{
+	border: 1px solid #CCCCCC;
+	margin: 0;
+	padding: 0;
+	width: 400;
+	height: 300;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+#login .ui-frame{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+	color: #003399;
+	margin: 0;
+	width: 380px;
+	height: 40px;
+	text-align: center;
+	margin-left: 540px;
+	margin-right: 80px;
+	margin-bottom: 5px;
+	border: 1px solid #CCCCCC;
+}
+
+#login .ui-frame td{
+	text-align: left;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 0;
+}
+
+#login .ui-frame .ui-label-frame{
+		text-align: left;
+		color: #101055;
+		font-size: 12px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bolder;
+}
+/**---------------------------- ACCIONES COMUNES -------------------------- **/
+
+.ui-button{
+	display: inline-block;
+	display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 12px Arial;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	
+}
+
+.ui-rounded{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+}
+
+.ui-button-color{
+	color: #d9eef7;
+	border: solid 1px #202441;
+	background: #7f7f7f;
+	background: -webkit-gradient(linear, left top, left bottom, from(#4c4c4c), to(#7f7f7f));
+	background: -moz-linear-gradient(top,  #4c4c4c,  #7f7f7f);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c4c4c', endColorstr='#7f7f7f');
+}
+
+.ui-button-color:hover{
+	background: #4c4c4c;
+	background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#4c4c4c));
+	background: -moz-linear-gradient(top,  #333333,  #4c4c4c);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#4c4c4c');
+	
+}
+
+.ui-button-color:active{
+	color: #FFFFFF;
+	background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#7f7f7f));
+	background: -moz-linear-gradient(top,  #999999,  #7f7f7f);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#7f7f7f');
+}
+
+.ui-button-no-color{
+	color: #FFFFFF;
+	border: solid 1px #AEAEAE;
+	background: #DEDEDE;
+}
+
+
+#iEdit{
+	display:block;
+	height: 25px;
+	width: 30px;
+	background-image: url(../../../include/images/action/edit.png);
+	background-position: middle;
+	border:1px solid #666666;
+}
+
+.ui-add{
+	display:block;
+	height: 25px;
+	width: 30px;
+	background-image: url(../../../include/images/action/add.png);
+	background-position: middle;
+	border:1px solid #666666;
+}
+
+.ui-edit{
+	height: 25px;
+	width: 25px;
+	background-image: url(../../../include/images/action/edit.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ui-view{
+	height: 25px;
+	width: 25px;
+	background-image: url(../../../include/images/action/view.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ui-delete{
+	height: 25px;
+	width: 25px;
+	background-image: url(../../../include/images/action/delete.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ui-filter{
+	height: 25px;
+	width: 25px;
+	background-image: url(../../../include/images/action/search.png);
+	background-position: middle;
+	border:1px solid #666666;
+}
+
+.ui-detail{
+	height: 25px;
+	width: 25px;
+	background-image: url(../../../include/images/action/detail.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	border: 0px solid #666666;
+}
+
+.ui-choose-search{
+	height: 25px;
+	width: 25px;
+	background-image: url(../../../include/images/action/no-check.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ui-next{
+
+}
+
+.ui-previous{
+
+}
+
+.ui-lov{
+	height: 20px;
+	width: 25px;
+	background-image: url(../../../include/images/action/lov.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ui-calendar{
+	height: 25px;
+	width: 25px;
+	background-image: url(../../../include/images/action/calendar-c.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ui-sortable{
+	height: 25px;
+	width: 10px;
+	background-image: url(../../../include/images/action/order_off_rgb.png);
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.ui-sortable-asc{
+	height: 25px;
+	width: 10px;
+	background-image: url(../../../include/images/action/order_asc_rgb.png);
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.ui-sortable-desc{
+	height: 25px;
+	width: 10px;
+	background-image: url(../../../include/images/action/order_desc_rgb.png);
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.ui-logout{
+	height: 25px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px Arial;
+	font-weight: bold;
+	text-align: right;
+}
+
+.ui-logout:hover{
+	color: #101055;
+}
+/*--------------------------- TITULO DE PAGINA ---------------------------*/
+
+#iTitle{
+    height: 40px;
+    line-height: 40px;
+    text-align:left;
+}
+
+#iTitle span{
+	padding-left: 5px;
+}
+
+#iTitle .ui-title{
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: left;
+	padding-bottom: 20px;
+}
+
+#iTitle .ui-bullet{
+	/*background: url(../../../include/images/design/bullet-I.gif) no-repeat center;*/
+	width: 13px;
+	height: 13px;
+	padding-left: 35px;
+}
+
+/**------------------- INFORMACION DE URL DE MAESTRO -------------------**/
+#master {
+	
+}
+
+#master td {
+	height: 25px;
+	text-align: center;
+}
+
+#master table table td {
+	font-size: 11px;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	border-bottom: 1px dotted #666666;
+	height: 25px;
+	text-align: left;
+}
+
+#master a {
+	font-size: 11px;
+	color: #2A2E83;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	text-transform: capitalize;
+	text-decoration: none;
+}
+
+/**-----------------------------------------------------------------------**/
+	/* DEFINICION DE ESTILOS PARA LAS ACCIONES
+/**-----------------------------------------------------------------------**/
+#action-bar{
+	float: left;
+	margin-bottom: 10px;
+}
+
+#action-bar table td{
+	text-align: center;
+}
+
+#navigation-bar{
+	float: right;
+	margin-bottom: 10px;
+}
+
+
+#action-do table {
+	width: 100%;
+	padding: 1px;
+	border-spacing: 1px;
+}
+
+#action-do td {
+	text-align: center;
+}
+
+#action-navigation .grayed{
+	background: #dedede;
+	color: #ffffff;
+	border: 1px #aeaeae solid;
+}
+
+/*--------------------------- PANTALLAS CRUD y regresar----------------------------*/
+
+#action-do {
+	margin-left: 15%;
+	margin-right: 15%;
+	width: 70%;
+}
+
+#action-do  .input {
+	background: #000066 url(../../include/images/design/header-cintillo.png);
+	color: #FFFFFF;
+	padding: 0 .5em 0 0;
+	border: 1px #5A5EAA solid;
+	font-weight: bold;
+	font-size: 10px;
+	min-height: 22px;
+	text-align: center;
+	vertical-align: middle;
+	text-shadow: aqua;
+	padding-bottom: 4px;
+	padding-left: 4px;
+}
+
+/*------------------------------- FILTRO ----------------------------------*/
+#iFilter {
+	text-align: center;
+}
+
+#iFilter table td {
+	width: 600px;
+	text-align: center;
+}
+
+#iFilter .ui-fieldset {
+	text-align: left;
+}
+
+
+#c_datafilter .text {
+	text-align: right;
+}
+
+#c_datafilter input {
+	text-align: left;
+	border: 1px #2A2E83 solid;
+}
+
+#c_datafilter .box {
+	text-align: left;
+}
+
+#filter_action input {
+	background: #B0B0FF;
+	color: #FFFFFF;
+	padding: 0 .5em 0 0;
+	border: 1px #5A5EAA solid;
+	font-weight: bold;
+	font-size: 10px;
+	min-height: 22px;
+	text-align: center;
+	vertical-align: middle;
+	text-shadow: aqua;
+	padding-bottom: 4px;
+	padding-left: 4px;
+}
+
+/**-----------------------------------------------------------------------**/
+/*           DEFINICION DE ESTILOS PARA LISTADO DE DATOS                   */
+/**-----------------------------------------------------------------------**/
+#iListing{
+	clear: both;
+}
+
+#iListing table {
+	border: 1px solid #CCCCCC;
+	font-size: 11px;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+#iListing th {
+	background: url(../../../include/images/design/header-cintillo-II.png);
+	font-size: 11px;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	border-bottom: 1px dotted #666666;
+	text-transform: capitalize;
+	height: 25px;
+	vertical-align: middle;
+}
+
+#iListing th span{
+	display: inline-block;
+	align: left;
+	vertical-align: middle;
+}
+
+#iListing th a{
+	display: inline-block;
+	align: right;
+	vertical-align: middle;
+}
+
+#iListing tr:hover {
+	background: #686b80;
+	color: #ffffff;
+	/*font-weight: bolder;*/
+	vertical-align: middle;
+}
+
+#iListing td {
+	padding: 0;
+	/*font-weight: bolder;*/
+	border-bottom: 0px solid #43506B;
+}
+
+#iListing td span{
+	
+}
+
+#iListing a {
+	display: inline-block;
+	color: #000000;
+	text-decoration: none;
+	height: 23px;
+}
+
+#iListing a:hover {
+	color: #FFFFFF;
+	border:0px solid #43506B;
+	cursor: pointer;
+}
+
+#iListing a.ui-choose-search:hover {
+	background-image: url(../../../include/images/action/check.png);
+}
+
+/**---------------- LISTADO CON JAVASCRIPT ------------------**/
+#iListing .ui-odd {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	/*background-color: #f6f2cf;*/
+	background-color: #BEC2F6;
+	height: 20px;
+}
+
+#iListing .ui-even {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	background-color: #E1E1FF;
+	height: 20px;
+}
+
+#iListing .ui-selected {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bold;
+	background-color: #000066;
+	color: #FFFFFF;
+	height: 20px;
+}
+
+/**-----------------------------------------------------------------------**/
+/*         DEFINICION DE ESTILOS PARA MANIPULACION DE DATOS                */
+/**-----------------------------------------------------------------------**/
+#iData {
+	text-align: center;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+}
+
+#iLov {
+	font-size: 11px;
+	color: #2A2E83;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	text-transform: capitalize;
+	text-decoration: none;
+}
+
+#iData table {
+	text-align: center;
+	border: 0px;
+	padding: 1px;
+
+}
+
+#iData table table {
+	width: 800px;
+	border: 1px solid #888888;
+	font-size: 12px;
+	font-family: Arial;
+	background-color: #CCCCCC;
+}
+
+#iData table table td{
+	text-align: left;
+	vertical-align: middle;
+}
+
+#iData a {
+	display: inline-block;
+	color: #000000;
+	text-decoration: none;
+	vertical-align: text-bottom;
+}
+
+#iData a:hover {
+	cursor: pointer;
+}
+
+#iData .text {
+	text-align: right;
+	vertical-align: middle;
+}
+
+#iData .ui-label {
+	text-align: right;
+	vertical-align: middle;
+}
+
+#iData input[type=text]{
+	text-align: left;
+	border: 1px #2A2E83 solid;
+	vertical-align: middle;
+}
+
+#iData input:focus{
+	background-color: #FFFFCC;
+}
+
+#iData textarea {
+	text-align: left;
+	border: 1px #2A2E83 solid;
+	vertical-align: middle;
+}
+
+#iData .box {
+	text-align: left;
+}
+
+#iData .vbox {
+	text-align: left;
+	color: #666666;
+	font-size: 10px;
+	font-weight: normal;
+	border-width: 1px 1px 1px 1px;
+	border-style: solid;
+	border-color:#CCCCCC #CCCCCC #CCCCCC #CCCCCC;
+	background-color: #FFFFFF;
+}
+
+
+#iData .read{
+	text-align: left;
+}
+
+#iData .read input{
+	text-align: left;
+    color: #666666;
+    font-size: 10px; 
+    font-weight: normal;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color:#CCCCCC #CCCCCC #CCCCCC #CCCCCC;
+    background-color: #FFFFFF;
+}
+
+#iData input button {
+	background: #B0B0FF;
+	color: #FFFFFF;
+	padding: 2em .5em 0 0;
+	border: 1px #5A5EAA solid;
+	font-weight: bold;
+	font-size: 10px;
+	min-height: 22px;
+	text-align: center;
+	vertical-align: middle;
+	text-shadow: aqua;
+	padding-bottom: 4px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+
+
+#iData .fieldset {
+	text-align: left;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+#iData ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+#iData li {
+	text-align: left;
+/**	background: #FFDDDD; */
+	color: #FF0000;
+	font-weight: bold;
+	font-size: 10px;
+	height: 15px;
+}
+
+#iData .ui-readonly{
+	text-align: left;
+	color: #000000;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+#iData .ui-fieldset{
+	text-align: left;
+	color: #101055;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+/**-----------------------------------------------------------------------**/
+/*          DEFINICION DE ESTILOS PARA INFORMACION DE DETALLE              */
+/**-----------------------------------------------------------------------**/
+#iHeader {
+	text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	width: 60%;
+}
+
+#iHeader .ui-fieldset {
+	text-align: left;
+}
+
+#iHeader table {
+	width: 100%;
+}
+
+#iHeader table td{
+	text-align: left;
+}
+
+#iHeader .ui-label {
+	text-align: right;
+	vertical-align: middle;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+
+#iHeader .ui-readonly{
+	text-align: left;
+	color: #2A2E83;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+/**------------- ESTILO DE PESTANIAS  ----------------**/
+
+#iTab{}
+
+#iTab ul{
+	padding: 3px 0;
+	margin-left: 0;
+	margin-top: 1px;
+	margin-bottom: 0;
+	font: bold 11px Verdana;
+	list-style-type: none;
+	text-align: left;
+}
+
+#iTab li{
+	display: inline;
+	margin: 0;
+}
+
+#iTab li a{
+	text-decoration: none;
+	position: relative;
+	z-index: 1;
+	padding: 3px 7px;
+	margin-right: 3px;
+	border: 1px solid #778;
+	color: #2d2b2b;
+	background: white url(../../../include/images/design/tabs/html/shade.gif) top left repeat-x;
+}
+
+#iTab li a:visited{
+	color: #2d2b2b;
+}
+
+#iTab li a:hover{
+	text-decoration: underline;
+	color: #2d2b2b;
+}
+
+#iTab li a.ui-selected{
+	position: relative;
+	top: 1px;
+}
+
+#iTab li a.ui-selected{
+	background-image: url(../../../include/images/design/tabs/html/shadeactive.gif);
+	border-bottom-color: white;
+}
+
+#iTab li a.ui-selected:hover{ 
+	text-decoration: none;
+}
+
+#iTabline{
+	border-bottom:0px; 
+	border-left:0px; 
+	border-right: 0px; 
+	border-top: 1px; 
+	border-top-color: gray; 
+	border-top-style: solid; 
+	width:90%; 
+	margin-bottom: 0.5em; 
+	padding: 2px
+}
+
+/**----------------------------------------------------------------------**/
+	/* DEFINICION DE ESTILOS PARA MENSAJES DE ERROR
+/**----------------------------------------------------------------------**/
+#iError {
+	margin: 0;
+	background: #cc0000;
+	width: 70%;
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+#iError b.ui-round-top {
+	display: block;
+	background: #FFF;
+}
+
+#iError b.ui-round-bottom {
+	display: block;
+	background: #FFF;
+}
+
+#iError b.ui-round-top b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #cc0000;
+}
+
+#iError b.ui-round-bottom b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #cc0000;
+}
+
+#iError b.ui-line-one{
+	margin: 0 5px;
+}
+
+#iError b.ui-line-two {
+	margin: 0 3px;
+}
+
+#iError b.ui-line-three {
+	margin: 0 2px;
+}
+
+#iError b.ui-round-top b.ui-line-four {
+	margin: 0 1px;
+	height: 2px;
+}
+
+#iError b.ui-round-bottom b.ui-line-four {
+	margin: 0 1px;
+	height: 2px;
+}
+
+#iError td{
+	text-align: left;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	vertical-align: middle;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/**----------------------------------------------------------------------**/
+	/* DEFINICION DE ESTILOS PARA MENSAJES DE AYUDA PARA EL USUARIO
+/**----------------------------------------------------------------------**/
+#iHelp {
+	margin: 0;
+	background: #ffffcc;
+	width: 70%;
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+#iHelp b.ui-round-top {
+	display: block;
+	background: #FFF;
+}
+
+#iHelp b.ui-round-bottom {
+	display: block;
+	background: #FFF;
+}
+
+#iHelp b.ui-round-top b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #ffffcc;
+}
+
+#iHelp b.ui-round-bottom b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #ffffcc;
+}
+
+#iHelp b.ui-line-one {
+	margin: 0 5px;
+}
+
+#iHelp b.ui-line-two {
+	margin: 0 3px;
+}
+
+#iHelp b.ui-line-three {
+	margin: 0 2px;
+}
+
+#iHelp b.ui-round-top b.ui-line-four {
+	margin: 0 1px;
+	height: 2px;
+}
+
+#iHelp b.ui-round-bottom b.ui-line-four {
+	margin: 0 1px;
+	height: 2px;
+}
+
+#iHelp td{
+	text-align: left;
+	color: #AE5901;
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	vertical-align: middle;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/**----------------------------------------------------------------------**/
+	/* DEFINICION DE ESTILOS PARA MENSAJES DE ADVERTENCIA
+/**----------------------------------------------------------------------**/
+#iWarning {
+	margin: 0;
+	background: #ffffcc;
+	width: 70%;
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+#iWarning b.ui-round-top {
+	display: block;
+	background: #FFF;
+}
+
+#iWarning b.ui-round-bottom {
+	display: block;
+	background: #FFF;
+}
+
+#iWarning b.ui-round-top b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #ffffcc;
+}
+
+#iWarning b.ui-round-bottom b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #ffffcc;
+}
+
+#iWarning b.ui-line-one {
+	margin: 0 5px;
+}
+
+#iWarning b.ui-line-two {
+	margin: 0 3px;
+}
+
+#iWarning b.ui-line-three {
+	margin: 0 2px;
+}
+
+#iWarning b.ui-round-top b.ui-line-four {
+	margin: 0 1px;
+	height: 2px;
+}
+
+#iWarning b.ui-round-bottom b.ui-line-four {
+	margin: 0 1px;
+	height: 2px;
+}
+
+#iWarning td{
+	text-align: left;
+	color: #AE5901;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	vertical-align: middle;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/**----------------------------------------------------------------------**/
+	/* DEFINICION DE ESTILOS PARA MENSAJES DE EXITO
+/**----------------------------------------------------------------------**/
+#iSuccess {
+	margin: 0;
+	background: #DEDEDE;
+	width: 70%;
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+#iSuccess b.ui-round-top {
+	display: block;
+	background: #FFF;
+}
+
+#iSuccess b.ui-round-bottom {
+	display: block;
+	background: #FFF;
+}
+
+#iSuccess b.ui-round-top b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #DEDEDE;
+}
+
+#iSuccess b.ui-round-bottom b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #DEDEDE;
+}
+
+#iSuccess b.ui-line-one {
+	margin: 0 5px;
+}
+
+#iSuccess b.ui-line-two {
+	margin: 0 3px;
+}
+
+#iSuccess b.ui-line-three {
+	margin: 0 2px;
+}
+
+#iSuccess b.ui-round-top b.ui-line-four {
+	margin: 0 1px;
+	height: 2px;
+}
+
+#iSuccess b.ui-round-bottom b.ui-line-four {
+	margin: 0 1px;
+	height: 2px;
+}
+
+#iSuccess td{
+	text-align: left;
+	color: #4E4E4E;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	vertical-align: middle;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/**----------------------------------------------------------------------**/
+	/* DEFINICION DE ESTILOS PARA PANTALLA DE ORDEN
+/**----------------------------------------------------------------------**/
+
+
+/**----------------------------------------------------------------------**/
+	/* DEFINICION DE ESTILOS PARA PANTALLA DE PERSONALIZACION DE LISTADO
+/**----------------------------------------------------------------------**/
+#iProcessing {
+	font-size: 11px;
+	color: #3333ff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+/** ------------------------------------------------------------ **/
+/* PARA TITULOS DE VENTANA 
+/**------------------------------------------------------------**/
+#c_title table {
+	height: 25px;
+	border: 1px #2A2E83 solid;
+	text-align: center;
+	width: 100%;
+	padding: 0;
+	border-spacing: 0;
+}
+
+#c_title .background {
+	overflow: hidden;
+	background: #002454 repeat-x;
+}
+
+#c_title .title {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: left;
+	padding-left: 5px;
+}
+
+#c_title .bullet {
+	
+	width: 13px;
+	height: 13px;
+	padding-left: 1px;
+}
+
+#c_title table table{
+	text-align: center;
+	width: 100%;
+	padding: 0;
+	border-spacing: 0;
+}

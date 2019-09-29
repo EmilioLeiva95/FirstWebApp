@@ -1,0 +1,135 @@
+/**----------------------------------------------------------------------**/
+/* DEFINICION DE ESTILOS PARA COMPLEMENTOS DE DISENIO                    **/
+/* ESTILO DE PESTANIAS                                                   **/
+/**----------------------------------------------------------------------**/
+
+/*****----MENU----*****/
+#iMenuTab ul{
+	position:relative;
+	float:left;
+	width:100%;
+	padding:0 0 1.75em 1em;
+	margin:0;
+	list-style:none;
+	line-height:1em;
+}
+
+#iMenuTab li{
+	float:left;
+	margin:0;
+	padding:0;
+
+}
+
+#iMenuTab a{
+	display:block;
+	color:#444;
+	text-decoration:none;
+	font-weight:bold;
+	background:#ddd;
+	margin:0;
+	padding:0.25em 1em;
+	border-left:1px solid #fff;
+	border-top:1px solid #fff;
+	border-right:1px solid #aaa
+}
+
+#iMenuTab a:hover,
+#iMenuTab a:active,
+#iMenuTab a.ui-selected:link,
+#iMenuTab a.ui-selected:visited{
+	background:#bbb;
+}
+
+#iMenuTab a.ui-selected:link,
+#iMenuTab a.ui-selected:visited{
+	position:relative;
+	z-index:102;
+}
+
+/*****----ITEM----*****/
+
+#iMenuTab ul ul{
+	position:absolute;
+	left:0;
+	top:1.5em;
+	float:left;
+	background:#bbb;
+	width:100%;
+	margin:0;
+	padding:0.25em 0.25em 0.25em 1em;
+	list-style:none;
+	border-top:1px solid #fff;
+
+}
+
+#iMenuTab ul ul li{
+	float:left;
+	display:block;
+	margin-top:1px;
+}
+
+#iMenuTab ul ul a{
+	background:#bbb;
+	color:#fff;
+	display:inline;
+	margin:0;
+	padding:0 1em;
+	border:0
+}
+
+#iMenuTab ul ul a:hover,
+#iMenuTab ul ul a:active,
+#iMenuTab ul ul a.ui-selected:link,
+#iMenuTab ul ul a.ui-selected:visited{
+	color:#444;
+	z-index:102
+}
+
+/*
+#iMenuTab li a{
+	text-decoration: none;
+	position: relative;
+	z-index: 1;
+	padding: 3px 7px;
+	margin-right: 3px;
+	border: 1px solid #778;
+	color: #2d2b2b;
+	background: white url(../../../include/images/design/tabs/html/shade.gif) top left repeat-x;
+}
+
+#iMenuTab li a:visited{
+	color: #2d2b2b;
+}
+
+#iMenuTab li a:hover{
+	text-decoration: underline;
+	color: #2d2b2b;
+}
+
+#iMenuTab li a.ui-selected{
+	position: relative;
+	top: 1px;
+}
+
+#iMenuTab li a.ui-selected{
+	background-image: url(../../../include/images/design/tabs/html/shadeactive.gif);
+	border-bottom-color: white;
+}
+
+#iMenuTab li a.ui-selected:hover{ 
+	text-decoration: none;
+}
+*/
+#iTabline{
+	border-bottom:0px; 
+	border-left:0px; 
+	border-right: 0px; 
+	border-top: 1px; 
+	border-top-color: gray; 
+	border-top-style: solid; 
+	width:90%; 
+	margin-bottom: 0.5em; 
+	padding: 2px
+}
+

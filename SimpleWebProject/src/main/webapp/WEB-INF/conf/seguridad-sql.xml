@@ -1,0 +1,220 @@
+<seguridad-sql>
+<!--seguridad-sql
+ este sql forma los usuarios necesita 3 datos:
+ NOMBRE_USUARIO, PASSWORD y LOGIN, PASSWORD_EXP, ESTADO
+ este es el primer sql que se ejecuta 
+ -->
+<sql-usuarios>
+<![CDATA[
+	SELECT  CONCAT(nombre, ' ' ,apellido) AS NOMBRE_USUARIO, 
+	USUARIO AS LOGIN, 
+	CLAVE AS PASSWORD, 
+	EST_REG
+	FROM SEGD_USUARIO
+	WHERE EST_REG = 'A' 
+]]>
+</sql-usuarios>
+
+<!--
+una vez cargados los usuarios luego se forman los roles,
+para este punto se necesita un sql que devuelva lo siguiente:
+LOGIN y NOMBRE_ROL unicamente, la asociacion de los usuarios se hace
+con los datos cargados del sql anterior 
+ -->
+<sql-roles-usuarios>
+<![CDATA[
+SELECT SEGD_USUARIO.USUARIO AS LOGIN, CONCAT(SEGD_PERFIL.ID_SEG_PERFIL, '-',SEGD_MODULO.ID_MODULO) AS NOMBRE_ROL
+  FROM SEGD_MODULO, SEGD_PERFIL, SEGD_USUARIO, SEGD_USU_PER_ACCESO, SEGD_MOD_USUARIO
+ WHERE SEGD_USUARIO.ID_USUARIO = SEGD_MOD_USUARIO.ID_USUARIO
+   AND SEGD_USUARIO.ID_USUARIO = SEGD_USU_PER_ACCESO.ID_USUARIO
+   AND SEGD_PERFIL.ID_SEG_PERFIL = SEGD_USU_PER_ACCESO.ID_SEG_PERFIL
+   AND SEGD_MOD_USUARIO.ID_MODULO = SEGD_MODULO.ID_MODULO
+   AND SEGD_MODULO.ID_MODULO = ${COD_MOD}
+   AND SEGD_PERFIL.ID_SEG_PERFIL = ${COD}	
+   AND SEGD_PERFIL.EST_REG = 'A'
+   AND SEGD_MODULO.EST_REG = 'A'
+   AND SEGD_USUARIO.EST_REG = 'A'
+   AND SEGD_USU_PER_ACCESO.EST_REG = 'A'
+   AND SEGD_MOD_USUARIO.EST_REG = 'A'
+]]>
+</sql-roles-usuarios>
+
+<!--
+este es un sql que no requiere ser recursivo, la recursividad se 
+arma de manera programatica requiere los siguientes campos:
+DESCRIPCION ORDEN VISIBLE LLAVE 
+ENLACE IDENTIFICADOR IDENTIFICADOR_PADRE
+esto arma la base recursiva de objetos del menu 
+ -->
+<sql-items>
+<![CDATA[
+	SELECT  DESCRIPCION AS DESCRIPCION,
+	        ORDEN AS ORDEN,
+	        VISIBLE AS VISIBLE,
+	        LLAVE AS LLAVE,
+	        ENLACE AS ENLACE,
+	        ID_RECURSO AS IDENTIFICADOR,
+	        ID_SEG_REC_PADRE AS IDENTIFICADOR_PADRE
+	FROM    SEGD_RECURSO
+	WHERE   EST_REG = 'A'
+]]>
+</sql-items>
+
+<sql-items-rol-resumen>
+		<![CDATA[
+	 SELECT CASE WHEN SEGD_REC_PERFIL.ACC_AUTORIZADA LIKE '%L%' THEN 'S' 
+	        else 'N'
+	        END  AS LISTAR,
+	        CASE WHEN SEGD_REC_PERFIL.ACC_AUTORIZADA LIKE '%V%' THEN 'S' 
+	        else 'N'
+	        END  AS VER,
+	        CASE WHEN SEGD_REC_PERFIL.ACC_AUTORIZADA LIKE '%C%' THEN 'S' 
+	        else 'N'
+	        END  AS CREAR,
+	        CASE WHEN SEGD_REC_PERFIL.ACC_AUTORIZADA LIKE '%M%' THEN 'S' 
+	        else 'N'
+	        END  AS ACTUALIZAR,
+	        CASE WHEN SEGD_REC_PERFIL.ACC_AUTORIZADA LIKE '%E%' THEN 'S' 
+	        else 'N'
+	        END  AS ELIMINAR,
+	        'S' AS IMPRIMIR,
+	        CONCAT(SEGD_PERFIL.ID_SEG_PERFIL, '-',SEGD_MODULO.ID_MODULO) AS NOMBRE_ROL,
+	        SEGD_RECURSO.LLAVE AS LLAVE
+       FROM SEGD_REC_PERFIL, SEGD_RECURSO, SEGD_MODULO, SEGD_PERFIL, SEGD_USUARIO, SEGD_USU_PER_ACCESO, SEGD_MOD_USUARIO
+      WHERE SEGD_USUARIO.ID_USUARIO = SEGD_MOD_USUARIO.ID_USUARIO
+        AND SEGD_USUARIO.ID_USUARIO = SEGD_USU_PER_ACCESO.ID_USUARIO
+        AND SEGD_PERFIL.ID_SEG_PERFIL = SEGD_USU_PER_ACCESO.ID_SEG_PERFIL
+        AND SEGD_MOD_USUARIO.ID_MODULO = SEGD_MODULO.ID_MODULO 
+        AND SEGD_REC_PERFIL.ID_RECURSO = SEGD_RECURSO.ID_RECURSO
+        AND SEGD_MODULO.ID_MODULO  = SEGD_RECURSO.ID_MODULO
+        AND SEGD_REC_PERFIL.ID_SEG_PERFIL = SEGD_REC_PERFIL.ID_SEG_PERFIL
+        AND SEGD_PERFIL.ID_SEG_PERFIL = SEGD_REC_PERFIL.ID_SEG_PERFIL
+        AND SEGD_MODULO.ID_MODULO = ${COD_MOD}
+        AND SEGD_PERFIL.ID_SEG_PERFIL = ${COD}	
+        AND SEGD_PERFIL.EST_REG = 'A'
+   		AND SEGD_MODULO.EST_REG = 'A'
+   		AND SEGD_USUARIO.EST_REG = 'A'
+ 	    AND SEGD_USU_PER_ACCESO.EST_REG = 'A'
+   	 	AND SEGD_MOD_USUARIO.EST_REG = 'A'
+   	 	AND SEGD_REC_PERFIL.EST_REG = 'A'
+   	 	AND SEGD_RECURSO.EST_REG = 'A'
+        
+         UNION 
+        SELECT CASE WHEN EX.ACC_AUTORIZADA LIKE '%L%' THEN 'S' 
+	        else 'N'
+	        END  AS LISTAR,
+	        CASE WHEN EX.ACC_AUTORIZADA LIKE '%V%' THEN 'S' 
+	        else 'N'
+	        END  AS VER,
+	        CASE WHEN EX.ACC_AUTORIZADA LIKE '%C%' THEN 'S' 
+	        else 'N'
+	        END  AS CREAR,
+	        CASE WHEN EX.ACC_AUTORIZADA LIKE '%M%' THEN 'S' 
+	        else 'N'
+	        END  AS ACTUALIZAR,
+	        CASE WHEN EX.ACC_AUTORIZADA LIKE '%E%' THEN 'S' 
+	        else 'N'
+	        END  AS ELIMINAR,
+	        'S' AS IMPRIMIR,
+	        CONCAT(up.id_seg_perfil, '-', R.id_modulo) AS NOMBRE_ROL,
+	        R.LLAVE AS LLAVE
+	        FROM SEGD_RECURSO R, segd_rec_ext_usuario EX, segd_usu_per_acceso UP, segd_usuario U
+	        WHERE R.ID_RECURSO = EX.ID_RECURSO 
+	        AND EX.ID_USU_PER_ACCESO = UP.ID_USU_PER_ACCESO
+	        AND U.ID_USUARIO = UP.ID_USUARIO
+	        and UP.id_seg_perfil = ${COD}
+	        and R.id_modulo = ${COD_MOD}
+	        AND R.EST_REG = 'A'
+	        AND EX.EST_REG = 'A'
+	        AND UP.EST_REG = 'A'
+	        AND U.EST_REG = 'A'
+		]]>
+   </sql-items-rol-resumen>
+
+
+
+<!--
+SELECT  CONCAT(SEGD_PERFIL.ID_SEG_PERFIL, '-',SEGD_MODULO.ID_MODULO) AS NOMBRE_ROL,
+	        SEGD_RECURSO.LLAVE AS LLAVE
+       FROM SEGD_REC_PERFIL, SEGD_RECURSO, SEGD_MODULO, SEGD_PERFIL
+      WHERE SEGD_REC_PERFIL.ID_RECURSO = SEGD_RECURSO.ID_RECURSO
+        AND SEGD_MODULO.ID_MODULO  = SEGD_RECURSO.ID_MODULO
+        AND SEGD_REC_PERFIL.ID_SEG_PERFIL = SEGD_REC_PERFIL.ID_SEG_PERFIL
+
+
+-->
+
+
+<!-- <sql-item-rol-detalle-acceso> -->
+<!-- 	<![CDATA[ -->
+<!-- 	SELECT     (CASE WHEN RR.ACCION_AUTORIZAR ='S' THEN 'AUTORIZAR'ELSE NULL END) AS NOMBRE_CONDICION, -->
+<!--             P.DESCRIPCION AS NOMBRE_ROL, -->
+<!-- 	        RE.LLAVE AS LLAVE -->
+<!-- 	FROM    PERFIL P, PERFIL_RECURSO RR, RECURSO RE -->
+<!-- 	WHERE   P.ID_PERFIL = RR.ID_PERFIL -->
+<!-- 	AND     RE.ID_RECURSO = RR.ID_RECURSO -->
+<!-- 	AND     RE.ESTADO_REG = 'A' -->
+<!-- 	AND     P.EST_REG = 'A' -->
+<!--     AND     RR.ACCION_AUTORIZAR = 'S' -->
+<!--     AND     P.ID_PERFIL = ${COD} -->
+<!-- UNION -->
+<!-- SELECT      (CASE WHEN RR.ACCION_FILTRAR='S' THEN 'FILTRAR' ELSE  NULL END) AS NOMBRE_CONDICION, -->
+<!--             P.DESCRIPCION AS NOMBRE_ROL, -->
+<!-- 	        RE.LLAVE AS LLAVE -->
+<!-- 	FROM    PERFIL P, PERFIL_RECURSO RR, RECURSO RE -->
+<!-- 	WHERE   P.ID_PERFIL = RR.ID_PERFIL -->
+<!-- 	AND     RE.ID_RECURSO = RR.ID_RECURSO -->
+<!-- 	AND     RE.ESTADO_REG = 'A' -->
+<!-- 	AND     P.EST_REG = 'A' -->
+<!--     AND     RR.ACCION_FILTRAR = 'S' -->
+<!--    	AND     P.ID_PERFIL = ${COD} -->
+<!-- UNION -->
+<!-- SELECT     (CASE WHEN RR.ACCION_DETALLE ='S' THEN 'DETALLE'ELSE  NULL END) AS NOMBRE_CONDICION, -->
+<!--             P.DESCRIPCION AS NOMBRE_ROL, -->
+<!-- 	        RE.LLAVE AS LLAVE -->
+<!-- 	FROM    PERFIL P, PERFIL_RECURSO RR, RECURSO RE -->
+<!-- 	WHERE   P.ID_PERFIL = RR.ID_PERFIL -->
+<!-- 	AND     RE.ID_RECURSO = RR.ID_RECURSO -->
+<!-- 	AND     RE.ESTADO_REG = 'A' -->
+<!-- 	AND     P.EST_REG = 'A' -->
+<!--     AND     RR.ACCION_DETALLE = 'S' -->
+<!--     AND     P.ID_PERFIL = ${COD} -->
+<!-- 		]]> -->
+<!-- </sql-item-rol-detalle-acceso> -->
+<!-- 
+Este ultimo sql da el detalle de acceso originales y es el ultimo sql en ejecutarse este asume los siguientes
+campos 
+NOMBRE_CONDICION, valor custom de la condicion
+NOMBRE_ROL, nombre del rol al que se asocia
+LAVE, llave del item 
+ -->
+<!-- <sql-item-rol-acceso-completo>
+   <asociaciones>
+       	<listar valor="LISTAR"/>
+	<crear valor="CREAR"/>
+	<actualizar valor="MODIFICAR"/>
+	<ver valor="VER"/>
+	<eliminar valor="ELIMINAR"/>
+   </asociaciones>
+  <sql>
+	<![CDATA[
+	SELECT 
+		A.NOMBRE AS NOMBRE_CONDICION, 
+		P.DESCRIPCION AS NOMBRE_ROL, 
+		R.LLAVE AS LLAVE  
+     	FROM 	ACCION A, PERFIL P, 
+		PERFIL_RECURSO_ACCION PRA, 
+		PERFIL_RECURSO PR, RECURSO R  
+	WHERE 
+		PRA.CORR_ACCION = A.CORR_ACCION AND 
+		PRA.CORR_PERFIL_RECURSO = PR.CORR_PERFIL_RECURSO AND 
+		PR.CORR_PERFIL = P.CORR_PERFIL AND 
+		PR.CORR_RECURSO = R.CORR_RECURSO AND 
+		R.ESTADO = 'A' AND PRA.ESTADO = 'A' AND 
+		PR.ESTADO = 'A' AND P.ESTADO = 'A' AND 
+		A.ESTADO = 'A'
+	]]>	
+  </sql>
+</sql-item-rol-acceso-completo> -->
+
+</seguridad-sql>

@@ -1,0 +1,99 @@
+		<entity id="Products" sqlName="products" baseClassName="Products" display="Products" >
+			<attributes>
+				<id>
+				
+				<field id="prodId"
+				       sqlName="prod_id" 
+				       sqlType="LONG" 
+				       length="10"
+				       propertyName="prodId"
+                       automatic="true"
+				       formDisplay="Prod Id"
+				       listDisplay="Prod Id" 
+				       required="true"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+		
+				</id>
+				
+				<field id="category"
+				       sqlName="category" 
+				       sqlType="LONG" 
+				       length="10"
+				       propertyName="category"
+				       formDisplay="Category"
+				       listDisplay="Category" 
+				       required="true"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+				<field id="title"
+				       sqlName="title" 
+				       sqlType="VARCHAR" 
+				       length="50"
+				       propertyName="title"
+				       formDisplay="Title"
+				       listDisplay="Title" 
+				       required="true"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+				<field id="actor"
+				       sqlName="actor" 
+				       sqlType="VARCHAR" 
+				       length="50"
+				       propertyName="actor"
+				       formDisplay="Actor"
+				       listDisplay="Actor" 
+				       required="true"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+				<field id="price"
+				       sqlName="price" 
+				       sqlType="NUMERIC" 
+				       length="12"
+				       propertyName="price"
+				       formDisplay="Price"
+				       listDisplay="Price" 
+				       required="true"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+				<field id="special"
+				       sqlName="special" 
+				       sqlType="LONG" 
+				       length="5"
+				       propertyName="special"
+				       formDisplay="Special"
+				       listDisplay="Special" 
+				       required="false"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+				<field id="commonProdId"
+				       sqlName="common_prod_id" 
+				       sqlType="LONG" 
+				       length="10"
+				       propertyName="commonProdId"
+				       formDisplay="Common Prod Id"
+				       listDisplay="Common Prod Id" 
+				       required="true"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+	
+			</attributes>
+
+			
+
+		</entity>
+

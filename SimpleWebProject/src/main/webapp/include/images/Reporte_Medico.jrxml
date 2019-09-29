@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Medico" language="groovy" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91ca390-cb6e-4706-96dc-e791d59db152">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DataSet_Medico" uuid="9c86277e-3ce3-4f7d-aa14-09450fdcf984">
+		<parameter name="departamento" class="java.lang.String"/>
+		<parameter name="pais" class="java.lang.String"/>
+		<parameter name="fech_desde" class="java.lang.String"/>
+		<parameter name="fech_hasta" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT U.NOMBRE, U.APELLIDO
+FROM AUSENCIA A INNER JOIN EMPLEADO E ON E.ID_EMPLEADO = A.ID_EMPLEADO
+                 INNER JOIN USUARIO U  ON U.ID_USUARIO = E.ID_USUARIO
+                 INNER JOIN DEPARTAMENTO D ON D.ID_DEPARTAMENTO = E.ID_DEPARTAMENTO
+                 INNER JOIN OFICINA O ON O.ID_OFICINA = D.ID_OFICINA
+                 INNER JOIN PAIS P ON P.ID_PAIS = O.ID_PAIS
+WHERE A.ID_TIPO_AUSENCIA = 2
+AND P.DESCRIPCION = $P{pais} AND D.DESCRIPCION = $P{departamento} AND A.FEC_DESDE BETWEEN STR_TO_DATE($P{fech_desde},'%m/%d/%Y') and STR_TO_DATE($P{fech_hasta},'%m/%d/%Y')]]>
+		</queryString>
+		<field name="NOMBRE" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="APELLIDO" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="_departamento" class="java.lang.String"/>
+	<parameter name="_pais" class="java.lang.String"/>
+	<parameter name="_fech_desde" class="java.lang.String"/>
+	<parameter name="_fech_hasta" class="java.lang.String"/>
+	<parameter name="url_image" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="121" splitType="Stretch">
+			<staticText>
+				<reportElement x="108" y="69" width="369" height="37" uuid="a858c8ba-617e-4c26-b729-952ec6dfb95e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte General de Incapacidades  de Empleado ACF]]></text>
+			</staticText>
+			<image>
+				<reportElement x="497" y="-1" width="75" height="43" uuid="d445ceec-4b5e-405e-9424-23d09d16ac2d"/>
+				<imageExpression><![CDATA[$P{url_image}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="96" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="98" height="20" uuid="1b7ffb0b-d384-4154-9a6f-cf983394f6de"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Departamento :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="30" width="31" height="20" uuid="c9be4119-3649-4a14-a576-0d9277fc4b9e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[País :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="50" width="202" height="20" uuid="8118e442-3897-45f1-a610-3dd42b7537fd"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte generado a partir de :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="14" width="100" height="20" uuid="160926ea-5462-48ad-96e8-ada3d19ed789"/>
+				<textFieldExpression><![CDATA[$P{_departamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="33" width="100" height="20" uuid="47a54c8b-c67a-4c47-a3a3-471a45b1d5fe"/>
+				<textFieldExpression><![CDATA[$P{_pais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="55" width="100" height="20" uuid="40b1f233-7030-4377-afd3-b0c143bd170b"/>
+				<textFieldExpression><![CDATA[$P{_fech_desde}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="237" y="51" width="36" height="19" uuid="9a3a807a-4467-473c-afbe-dd0c7d6e6741"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[hasta: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="276" y="54" width="100" height="20" uuid="3be916f7-bd96-4123-ac6b-fdd9a5f30e6a"/>
+				<textFieldExpression><![CDATA[$P{_fech_hasta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="137" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 3" style="table 3" x="0" y="12" width="572" height="125" uuid="aa76c22d-4955-483f-a2fa-e39a5e06fe0a"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DataSet_Medico" uuid="8adcb24b-5559-454a-97bd-ae2f73266eef">
+						<datasetParameter name="fech_hasta">
+							<datasetParameterExpression><![CDATA[$P{_fech_hasta}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="fech_desde">
+							<datasetParameterExpression><![CDATA[$P{_fech_desde}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="pais">
+							<datasetParameterExpression><![CDATA[$P{_pais}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="departamento">
+							<datasetParameterExpression><![CDATA[$P{_departamento}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="280" uuid="06a63885-926b-40a7-98bb-5b5de4e71a90">
+						<jr:columnHeader style="table 3_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="280" height="30" uuid="d9c4350b-7ed9-46db-a1e3-ea6f714b47f7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[NOMBRE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="280" height="20" uuid="c8a29a91-5ff9-43c0-b014-ec220cfbc0ea"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="275" uuid="22d6ce73-f6eb-4b81-9fd5-cc75395181d2">
+						<jr:columnHeader style="table 3_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="275" height="30" uuid="42432e19-7515-4502-96b3-e4066a1a48c4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[APELLIDO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="275" height="20" uuid="f8eb0355-29fd-4454-a571-a57ec6d4529e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{APELLIDO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

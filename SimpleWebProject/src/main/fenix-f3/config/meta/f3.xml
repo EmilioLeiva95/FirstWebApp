@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<f3>
+	<global>
+		<source package="com.persistence" 
+		        sourceFolder="src/main/java" 
+		        testFolder="src/main/test"/>
+		<web rootFolder="src/main/webapp" webinfFolder="src/main/webapp/WEB-INF"
+			distinctionFolder="/WEB-INF/jsp" distintionConfFolder="/conf" />
+        <serviceLocator
+		   subPackage="dependenciasGlobales"
+		   className="DemoResolusor"
+		/>
+		<resourceBundle
+		   subPackage="resourceBundle"
+		   className="MessagesResources"
+		   locale="es"
+		   country="SV"
+		/>		
+		<database>
+			<name>Plsql</name>
+			<language>com.persistence.f3.app.distribuibles.implementaciones.dao.jdbcsql.impl.PostgresLenguaje</language>
+		</database>		
+	</global>
+	
+	<meta daoPackage="dao" sqlImplPackage="sql" >
+		$[entity/categories.xml]
+		<!-- $[entity/cust_hist.xml] -->
+		$[entity/customers.xml]
+		$[entity/inventory.xml]
+		$[entity/orderlines.xml]
+		$[entity/orders.xml]
+		$[entity/products.xml]
+		<!-- $[entity/reorder.xml] -->
+	</meta>
+</f3>
