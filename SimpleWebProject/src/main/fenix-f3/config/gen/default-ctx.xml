@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+   						http://www.springframework.org/schema/aop
+    					http://www.springframework.org/schema/aop/spring-aop-2.0.xsd 
+    					http://www.springframework.org/schema/txlobodb
+   						http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+   						http://www.directwebremoting.org/schema/spring-dwr
+    					http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+    					
+
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="$[rootdir]/src/main/fenix-f3/config/gen/default-add.properties"/>
+	</bean>
+
+	<bean id="log4jInitializer" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	  <property name="staticMethod" value="org.springframework.util.Log4jConfigurer.initLogging" />
+	  <property name="arguments">
+	     <list>              
+	        <value>$[rootdir]/src/main/fenix-f3/config/gen/log4j.xml</value>
+	     </list>
+	  </property>
+	</bean>
+
+ <bean id="orchestration" class="com.persistence.f3.core.flow.OrchestrationEngine">
+ 
+    <property name="runner">
+    	<bean class="com.persistence.f3.core.gen.template.TemplateRunner"
+    		p:velocityEngine-ref ="velocityEngine"
+    		p:baseOutputLocation="$[rootdir]"
+    	/>    	
+    </property>
+    
+ 	<property name="builders">
+ 		<list>
+ 		
+ 		
+			<bean class="com.persistence.f3.app.generation.abstraction.core.AppAbstraction"/>
+			   		
+			<bean class="com.persistence.f3.app.generation.implementations.dao.jdbsql.OrmJdbcSqlMasterBuilder"/>			
+
+			
+			
+			<bean class="com.persistence.f3.app.generation.implementations.serviceLocators.BussinessOverJdbcSQL"/>
+			
+			<bean class="com.persistence.f3.app.generation.implementations.resourceBundle.DefaultResourceBundle"/>
+
+			
+			<bean class="com.persistence.f3.app.generation.implementations.web.triton.WebStandardTriton">
+			  <property name="wap" value="false"/>
+			  <property name="html" value="false"/>
+			  <property name="portlet" value="false"/>
+			  <property name="springMVCRia" value="false"/>
+			  <property name="ria" value="false"/>
+			  <property name="jq" value="true"/>
+			  <property name="expo" value="false"/>
+			  <property name="selenium" value="false"/>
+			  <property name="bootstrap" value="true"></property>
+			</bean>  
+		
+<!--            <bean class="com.persistence.f3.j2eecompat.abstractionLayer.AbstractionLayerBuilderCore">-->
+<!--			   <property name="relFlag" value="true"/>-->
+<!--			</bean>-->
+<!--			<bean class="com.persistence.f3.j2eecompat.orm.jdbc.sql.builders.OrmJdbcSqlMasterBuilderRel"/>-->
+<!--			<bean class="com.persistence.j2eecompat.strutslayer.StrutsLayerBuilder"/> -->
+<!--			<bean class="com.persistence.f3.j2eecompat.builder.businessOverOrmJdbc.BusinessOverJdbcBuilder"/> -->
+			<!-- 
+			bean class="com.persistence.f3.orm.jdbc.sql.builders.OrmJdbcSqlMasterBuilder"/>
+			<bean class="com.persistence.f3.abesapien.builders.AbeSapienLayerBuilder"/>
+			bean class="com.persistence.f3.ioc.builders.IOCMasterBuilder"/
+			-->
+			
+			
+			<!-- bean class="com.persistence.f2.jsf.JSFMasterBuilder"/-->  		
+ 		
+ 		
+ 		
+ 		
+<!-- 			<bean class="com.persistence.f3.j2eecompat.abstractionLayer.AbstractionLayerBuilder"/>-->
+<!-- 			<bean class="com.persistence.f3.j2eecompat.orm.jdbc.sql.builders.OrmJdbcSqlMasterBuilder"/>-->
+<!-- 			<bean class="com.persistence.f3.j2eecompat.web.servletsupport.ServletSupportLayerBuilder"/> 			-->
+<!-- 			<bean class="com.persistence.f3.j2eecompat.builder.servletOverJdbc.ServletOverJdbcMasterBuilder"/>-->
+
+ 			
+ 			 
+ 			<!-- 
+ 			bean class="com.persistence.f3.orm.jdbc.sql.builders.OrmJdbcSqlMasterBuilder"/>
+ 			<bean class="com.persistence.f3.abesapien.builders.AbeSapienLayerBuilder"/>
+ 			 bean class="com.persistence.f3.ioc.builders.IOCMasterBuilder"/
+ 			 -->
+ 			
+ 			
+ 			<!-- bean class="com.persistence.f2.jsf.JSFMasterBuilder"/--> 			
+ 		</list>
+ 	</property> 	
+ </bean>
+
+ <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+      <property name="velocityProperties">
+         <value>
+            resource.loader=class
+            class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+         </value>
+      </property>
+   </bean>
+
+</beans>    					

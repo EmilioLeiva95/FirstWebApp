@@ -1,0 +1,39 @@
+		<entity id="Categories" sqlName="categories" baseClassName="Categories" display="Categories" >
+			<attributes>
+				<id>
+				
+				<field id="category"
+				       sqlName="category" 
+				       sqlType="LONG" 
+				       length="10"
+				       propertyName="category"
+                       automatic="true"
+				       formDisplay="Category"
+				       listDisplay="Category" 
+				       required="true"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+		
+				</id>
+				
+				<field id="categoryname"
+				       sqlName="categoryname" 
+				       sqlType="VARCHAR" 
+				       length="50"
+				       propertyName="categoryname"
+				       formDisplay="Categoryname"
+				       listDisplay="Categoryname" 
+				       required="true"
+				       searchable="true"
+				       listVisible="true"
+				       formVisible="true"
+				       />
+	
+			</attributes>
+
+			
+
+		</entity>
+

@@ -1,0 +1,300 @@
+.title-dashboard{
+	padding: 10px;
+	background: #f5f5f5;
+/* 	border-bottom: 1px solid #dee2e8; */
+}
+
+.filtro-letra{
+	margin-top: 5px;	
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	font-size: 15px;
+	font-weight: 200;
+}
+
+.status-device{
+	background-color: #fa2e03;
+	font-color : #ffffff;
+	text-align: center;
+}
+.title-dashboard h3{
+	font-size: 20px;
+	font-weight: 300;
+	color: #264566;
+	padding-bottom: 0;
+	margin: 0 0 0 4px;
+}
+
+
+.panel-inf {
+	height: 250px;
+	padding-top: 10px;
+	margin-top: 10px;
+	overflow-y: scroll;
+	width: 100%;
+}
+
+.btn-round {
+	margin-bottom: 7px;
+}
+
+.btn-solicitud {
+	padding-bottom: 4px;
+	background-color: #48758c;
+}
+
+.round-btn {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	border: 0;
+	background: transparent no-repeat center top;
+	
+}
+
+img{
+	background: transparent no-repeat center top;
+}
+
+.round-btn:hover, .round-btn:focus, .round-btn:active,
+	.round-btn.active, .open .dropdown-toggle.round-btn {
+	background-color: #FDFCE4;
+	border: 0;
+}
+
+.w3-flujo{
+	text-align: center;
+	background-color: #fffdc0 ;
+	border-left: 8px solid #e2c51a;
+}
+
+.w3-info{
+	text-align: center;
+	background-color: #F5F5F5 ;
+	border-left: 8px solid #295A7B;
+}
+
+.w3-panel{
+	padding: 0.01em 16px;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+}
+
+.w3-padding-16{
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+
+.w3-large{
+	font-size: 14px !important;
+}
+
+.panel-nowhite{
+	background:  #f5f5f5;
+	border-color: #EFEBE9; 
+	border-style: solid;
+}
+
+.panel-filtro{
+	border-color: #ece5e5;
+	border-width: 0.2px;
+}
+
+.letra-fecha{
+	font-size: 15px;
+	margin-top: 1px;
+	margin-left: 2px;
+	padding-left: 0px;
+}
+
+
+.input-fechas{
+	padding-left: 15px;
+}
+
+.move-left{
+	margin-left: -20px;
+}
+
+.btn-refrescar{
+	margin-top: 15px;
+	margin-left: 5%;
+}
+
+.panel-cuerpo{
+	font-size: 12px;
+}
+
+.panel-cuerpo-top{
+	font-size: 10px;
+}
+
+.panel-cabecera{
+	font-size: 13px;
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th{
+	border-top: 0;
+	padding: 5px;
+	line-height: 1.2;
+}
+
+.panel-top>tbody>tr>th{
+	padding: 5px;
+	line-height: 1.2;
+}
+
+.panel-top{
+	font-size: 12px;
+	margin-bottom: 2px;
+	padding-bottom: 1px;
+	margin-top: -13px;
+	
+}
+
+.panel-heading{
+	font-size: 10px;
+	font-weight: 200;
+	color:  #094186;
+	font-family: sans-serif;
+	font-stretch: expanded;
+}
+
+.modal-title p{
+	font-size: 16px;  
+	margin-top: 10px; 
+	font-weight: 100px;
+}
+
+.label{
+	 border-radius: 10px;
+	 padding: 3px 7px;
+	 font-size: 10px;
+	 font-weight: 700;
+   line-height: 1;
+}
+
+.table-dimensiones{
+	margin-top: -20px;
+	margin-bottom: 1px
+}
+
+.title-table{
+	background:#9E9E9E;
+	color:white
+}
+
+.demo-row{
+	margin-right: 30px;
+	margin-left: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: -11px;
+}
+
+@media (min-width: 1000px) {
+.row-ffechas{
+	margin-top: 23px;
+	margin-right: 25%;
+	margin-left: 25%;
+	padding-left: 60px;
+	padding-right: 60px;
+	}
+
+.move-right{
+	margin-left: -8em;
+}
+
+}
+.btn-filtrar{
+	margin-top: 13px;
+}
+
+.title-modal{
+	margin-top: 5px;
+	margin-bottom: 1px;
+	font-size: 8px;
+	color: #34495e;
+	
+}
+
+.panel-top-size{
+	height: 178px;
+}
+
+.label-total{
+	color: #34495e;
+	font-weight: bold;
+	font-size: 13px;
+	cursor: crosshair;
+}
+
+.cal-label{
+	font-size: 9px;
+}
+
+
+.combo-size{
+	width: 18em;
+}
+
+select:disabled {
+    background:#ecf0f1;
+    color: #95a5a6; 
+    font-style: oblique;
+}
+
+.label-cal{
+	background-color: #EEEEEE;
+	color: #67809F;
+	cursor: none;
+	font-size: 9px;
+	text-transform: uppercase;
+}
+
+.label-top{
+	background-color: #34495E;
+	color: #ECF0F1;
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+.input-numero{
+	width: 5.5em;
+}
+
+.bootstrap-select > .btn-default {
+    background-color: #fff;
+    color: #555;
+    border: 1px solid #D7CCC8;
+    font-size: 14px;
+    height: 36px;
+}
+
+.bootstrap-select > .btn-default:hover {
+    background-color: #F4FFE0;
+    color: #555;
+    border: 1px solid #D7CCC8;
+}
+
+.btn-cambio{
+	background-color: #27ACAC;
+	color: #A4EEE0;
+	border: 1.8px solid #A4EEE0;
+	margin-top: -2px;
+	border-radius: 4px;
+	box-shadow: 5px 5px 7px -2px rgba(181,177,181,1);
+}
+
+.advertencia{
+	line-height: 11px;
+	font-size: 12.6px;
+}
+
+.nuevo-detalle{
+	line-height: 16px;
+	font-size: 14px;
+	color: #005a83;
+}

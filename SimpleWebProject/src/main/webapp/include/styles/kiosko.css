@@ -1,0 +1,512 @@
+/**
+*  Styles para el Kiosko. Pensado para una resolucion 
+* de 800x600
+*/
+
+/** Imagen del fondo **/
+body{
+	background-image: url("../images/kiosko/fondo_bienvenida.jpg");
+}
+
+.loader{
+	width: 75px; 
+	position: absolute; 
+	top: 5px; 
+	right: 5px; 
+	text-align: right; 
+	display: none;
+}
+
+.errorMessage{
+	font-size: 18px; 
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	position:absolute; 
+	left:32px; 
+	top:170px; 
+	width:606px; 
+	height:40px; 
+	z-index:1;
+	text-align: center	
+}
+
+/*Este es para el titulo superior*/
+.titleStyle {
+	color: #FFFFFF;
+	font-size: 32px; 
+	font-family: Arial, Helvetica, sans-serif;
+	position:absolute; 
+	right:10px; 
+	top:25px; 
+	width:400px; 
+	height:65px; 
+	z-index:1;
+	text-align: center;
+	
+}
+
+.subtitleStyle{
+	color: #FFFFFF;
+	position:absolute; 
+	right:10px; 
+	top:92px; 
+	width:600px; 
+	height:25px; 
+	z-index:2;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-align: right;
+	border-top: 1px solid #f1f1f1;
+	padding-top: 5px;
+	
+}
+
+/* Esta clase sirve para el Titulo de los mensajes de felicitacion
+al cliente
+*/
+.secondTitle {
+	font-size: 18px; 
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	position:absolute; 
+	left:32px; 
+	top:120px; 
+	width:606px; 
+	height:40px; 
+	z-index:1;
+	text-align: center
+}
+
+.textStyle1{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	position:absolute; 
+	left:115px; 
+	top:175px; 
+	width:525px; 
+	height:35px; 
+	z-index:3
+}
+
+.textStyle2{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	position:absolute; 
+	left:115px; 
+	top:220px; 
+	width:525px; 
+	height:35px; 
+	z-index:3
+}
+
+.textStyle3{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	position:absolute; 
+	left:115px; 
+	top:265px; 
+	width:525px; 
+	height:35px; 
+	z-index:3
+}
+
+.textStyle4{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	position:absolute; 
+	left:115px; 
+	top:340px; 
+	width:525px; 
+	height:35px; 
+	z-index:3
+}
+
+.textStyle5{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	position:absolute; 
+	left:115px; 
+	top:385px; 
+	width:525px; 
+	height:35px; 
+	z-index:3
+}
+.errorFooter{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	position:absolute; 
+	left:0px; 
+	bottom: 35px; 
+	width:790px; 
+	height:55px; 
+	z-index:3;
+	padding-left: 10px;
+}
+
+.cover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/cover.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 100px;
+	width: 600px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 30px;
+	top: 130px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+
+.buttonStyle1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 35px;
+	top: 155px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+.buttonStyle2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 335px;
+	top: 155px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+.buttonStyle3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 35px;
+	top: 240px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+.buttonStyle4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 335px;
+	top: 240px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+
+.buttonStyle5 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 35px;
+	top: 325px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+.buttonStyle7 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 35px;
+	top: 410px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+.buttonStyle9 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 35px;
+	top: 495px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+.buttonStyle6 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 335px;
+	top: 325px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+.buttonStyle8 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 335px;
+	top: 410px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+.buttonStyle10 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/button_blue_75_250.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 75px;
+	width: 250px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 335px;
+	top: 495px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+
+.buttonHelper1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/helper_button_150_115.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 95px;
+	width: 150px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 645px;
+	top: 325px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 35px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
+
+.buttonHelper2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+	background-image: url(../images/kiosko/helper_button_150_115.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 95px;
+	width: 150px;
+	text-align: center;
+	text-indent: 5px;
+	font-style: normal;
+	text-transform: uppercase;
+	vertical-align: middle;
+	z-index: auto;
+	left: 645px;
+	top: 440px;
+	position: absolute;
+	margin: 0px;
+	padding-top: 35px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	visibility: visible;
+}
