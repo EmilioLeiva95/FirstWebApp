@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+	<h:form>
+		<p:growl id="messages" />
+		<p:menubar style="background: #c7394c;padding:1%;">
+			<p:submenu label="Usuarios" style="background: #c7394c;">
+				<p:menuitem value="Usuarios"update="growl"  />
+				<p:menuitem value="Roles" url="#" />
+				<p:menuitem value="Permisos" url="#" />
+			</p:submenu>
+
+			<p:submenu label="Producto">
+				<p:menuitem value="Undo" url="#" />
+				<p:menuitem value="Redo" url="#" />
+			</p:submenu>
+
+			<f:facet name="options">
+				<!--p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/-->
+				<p:commandButton type="button" value="Logout"
+					style="background: white;color: #c7394c;font-size: 16px;border: 1.4px white solid;border-radius: 10px;padding:2%;" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+</ui:composition>

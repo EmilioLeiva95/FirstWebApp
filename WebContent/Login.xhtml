@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<style type="text/css">
+body {
+	background: #313131;
+}
+
+.ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell {
+	text-align: center;
+	background: #313131;
+	color: white;
+	background: #313131;
+}
+
+.ui-widget-content {
+	border: none;
+}
+
+.roundButton {
+	border-radius: 20px;
+	margin-top: 5%;
+	padding: 0.5%;
+}
+
+.ui-widget-content .ui-state-default {
+	background: #c7394c;
+	color: white;
+	font-size: 16px;
+	border: 1.4px white solid;
+}
+</style>
+<h:body>
+	<h:form>
+		<p:panelGrid columns="1" layout="grid">
+			<h1>Inicio de Sesión</h1>
+			<span> <p:inputText id="usr"  value="#{login.user}"/> <p:watermark for="usr"
+					value="Usuario" />
+			</span>
+			<span> <p:inputText id="pwd" value="#{login.pwd}"/> 
+			<p:watermark for="pwd" value="Contraseña" />
+			</span>
+
+			<p:commandButton class="roundButton" action="#{login.validate}"
+				value="Iniciar Sesión" />
+		</p:panelGrid>
+	</h:form>
+</h:body>
+</html>
