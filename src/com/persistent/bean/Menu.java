@@ -5,9 +5,8 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class Menu {
 
-	public String optionMenu() {
+	public String tabUsers() {
 
-		
-		return "";
+		return "Usuarios.xhtml";
 	}
 }

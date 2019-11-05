@@ -33,19 +33,27 @@ body {
 	font-size: 16px;
 	border: 1.4px white solid;
 }
+
+.ui-growl {
+	position: fixed;
+	top: 50px;
+	right: 50px;
+	width: 301px;
+}
 </style>
 <h:body>
 	<h:form>
 		<p:panelGrid columns="1" layout="grid">
+			<p:growl id="alert" life="6000" />
 			<h1>Inicio de Sesión</h1>
-			<span> <p:inputText id="usr"  value="#{login.user}"/> <p:watermark for="usr"
-					value="Usuario" />
+			<span> <p:inputText id="usr" value="#{login.user}" /> <p:watermark
+					for="usr" value="Usuario" />
 			</span>
-			<span> <p:inputText id="pwd" value="#{login.pwd}"/> 
-			<p:watermark for="pwd" value="Contraseña" />
+			<span> <p:inputText id="pwd" value="#{login.pwd}" /> <p:watermark
+					for="pwd" value="Contraseña" />
 			</span>
 
-			<p:commandButton class="roundButton" action="#{login.validate}"
+			<p:commandButton class="roundButton" action="#{login.validate}" update="alert"
 				value="Iniciar Sesión" />
 		</p:panelGrid>
 	</h:form>
