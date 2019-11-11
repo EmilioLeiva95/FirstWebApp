@@ -1,12 +1,9 @@
 package com.persistent.bean;
 
-import java.util.regex.Pattern;
-
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 
 import com.persistent.dao.UsuarioDao;
+import com.persistent.bean.Functions;
 
 @ManagedBean
 public class Login {
@@ -18,17 +15,17 @@ public class Login {
 	public String validate() {
 		System.out.println("Dentro de funcion validate " + user + " " + pwd);
 		UsuarioDao data = new UsuarioDao();
-
+		Functions f=new Functions();
 		try {
-			if (this.validateVoid(user) && this.validateVoid(pwd)) {
+			if (f.validateVoid(user) && f.validateVoid(pwd)) {
 				if (data.validate(user, pwd))
 					return "Main.xhtml?faces-redirect=true";
 				else {
-					addMessage("Usuario invalido");
+					f.addMessage("Usuario invalido");
 					// return "";
 				}
 			} else {
-				addMessage("Campo invalido");
+				f.addMessage("Campo invalido");
 				System.out.println("Campo invalido");
 			}
 		} catch (Exception e) {
@@ -38,27 +35,7 @@ public class Login {
 		return "";
 	}
 
-	public void addMessage(String summary) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, null);
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}
 
-	// Metodo que valida si una cadena esta vacia
-	public boolean validateVoid(String text) {
-		if (text != null && !text.equals(""))
-			return true;
-		return false;
-	}
-
-	// Metodo para validar cadena de password con un minimo de 8 caracteres y una
-	// mayuscula, un numero,un caracter especial
-	public boolean validatePass(String pwd) {
-		String regex = "^(?=.*\\d)(?=.*[\\u0021-\\u002b\\u003c-\\u0040])(?=.*[A-Z])\\S{8,}$";
-		if (Pattern.matches(regex, pwd))
-			return true;
-
-		return false;
-	}
 
 
 	public boolean isLogin() {

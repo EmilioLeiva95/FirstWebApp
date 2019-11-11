@@ -4,21 +4,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.persistent.bean.Login;
+import com.persistent.bean.Functions;
+
 
 class LoginTest {
 
 	@Test
 	void testValidateVoid() {
-		Login l = new Login();
-		boolean resultado = l.validateVoid("admin");
+		Functions f=new Functions();
+		boolean resultado = f.validateVoid("admin");
 		assertTrue(resultado);
 	}
 
 	@Test
 	void testValidatePass() {
-		Login l = new Login();
-		boolean resultado = l.validatePass("1HOLAMmsdd$");
+		Functions f=new Functions();
+		boolean resultado = f.validatePass("1HOLAMmsdd$");
 		assertTrue(resultado);
 	}
 }

@@ -1,28 +1,68 @@
- <html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+	<style type="text/css">
+.ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell {
+	text-align: center;
+	color: white;
+}
 
-<h:head>
-	
-</h:head>
-<style type="text/css">
+.ui-widget-content {
+	border: none;
+}
 
-  .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell {
-        text-align: center;
-    }
-    .block{
-    	border:2px red solid;
-    }
+.roundButton {
+	border-radius: 15px;
+	margin-top: 4%;
+}
 </style>
-<h:body>
-	<h1>¡Bienvenido!</h1>
-	<p:panelGrid columns="1" layout="grid" class="block" style="width:300px">
-		<h:outputText value="Content" />
-		<h:outputText value="Content" />
-		<h:outputText value="Content" />
+	<!-- Header del bloque Usuarios -->
+	<p:panelGrid columns="3" layout="grid">
+		<p:commandButton value="Agregar" type="button" class="roundButton"
+			onclick="PF('userDialog').show()" title="Agregar usuario">
+		</p:commandButton>
+		<h1>USUARIOS</h1>
 	</p:panelGrid>
 
-</h:body>
-</html>
+	<!-- Tabla de datos de usuarios -->
+	<h:form id="form" style="padding:0.5%;">
+		<p:dataTable var="user" value="#{usuarios.listUsers}">
+			<p:column headerText="ID" style="width:20px">
+				<h:outputText value="#{user.id_user}" />
+			</p:column>
+			<p:column headerText="Nombre" style="width:200px">
+				<h:outputText value="#{user.nombre}" />
+			</p:column>
+			<p:column headerText="Apellido" style="width:200px;">
+				<h:outputText value="#{user.apellido}" />
+			</p:column>
+			<p:column headerText="Username"
+				style="width:100px;text-align: center">
+				<h:outputText value="#{user.username}" />
+			</p:column>
+			<p:column headerText="Correo" style="width:200px">
+				<h:outputText value="#{user.email}" />
+			</p:column>
+			<p:column headerText="Fecha Creación"
+				style="width:100px;text-align: center">
+				<h:outputText value="#{user.fecha_creacion}" />
+			</p:column>
+			<p:column headerText="Ultimo Inicio"
+				style="width:100px;text-align: center">
+				<h:outputText value="#{user.last_login}" />
+			</p:column>
+			<p:column headerText="Estado" style="width:50px;text-align: center">
+				<h:outputText value="#{user.estado}" />
+			</p:column>
+			<p:column style="width:100px;text-align: center">
+				<p:commandButton update="" onclick="PF('userDialog').show()"
+					title="View" value="Editar">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+</ui:composition>

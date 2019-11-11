@@ -4,9 +4,17 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class Menu {
+	private String uri;
 
-	public String tabUsers() {
+	public String getUri() {
+		return uri;
+	}
 
-		return "Usuarios.xhtml";
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
+	public void tabUsers() {
+		uri = "Usuarios.xhtml";
 	}
 }
