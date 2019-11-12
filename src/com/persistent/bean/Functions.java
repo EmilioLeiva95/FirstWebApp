@@ -2,8 +2,6 @@ package com.persistent.bean;
 
 import java.util.regex.Pattern;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 
 public class Functions {
 	// Metodo que valida si una cadena esta vacia
@@ -23,9 +21,6 @@ public class Functions {
 		return false;
 	}
 
-	public void addMessage(String summary) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, null);
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}
+
 
 }

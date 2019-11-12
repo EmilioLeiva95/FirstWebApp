@@ -1,6 +1,8 @@
 package com.persistent.bean;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import com.persistent.dao.UsuarioDao;
 import com.persistent.bean.Functions;
@@ -15,17 +17,17 @@ public class Login {
 	public String validate() {
 		System.out.println("Dentro de funcion validate " + user + " " + pwd);
 		UsuarioDao data = new UsuarioDao();
-		Functions f=new Functions();
+		Functions f = new Functions();
 		try {
 			if (f.validateVoid(user) && f.validateVoid(pwd)) {
 				if (data.validate(user, pwd))
 					return "Main.xhtml?faces-redirect=true";
 				else {
-					f.addMessage("Usuario invalido");
+					addMessage("Usuario invalido");
 					// return "";
 				}
 			} else {
-				f.addMessage("Campo invalido");
+				addMessage("Campo invalido");
 				System.out.println("Campo invalido");
 			}
 		} catch (Exception e) {
@@ -35,8 +37,10 @@ public class Login {
 		return "";
 	}
 
-
-
+	public void addMessage(String summary) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, null);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
 
 	public boolean isLogin() {
 		return isLogin;

@@ -23,13 +23,12 @@ body {
 	<!-- Componente del Menu principal -->
 	<ui:include src="/WEB-INF/Pages/Menu.xhtml" />
 
-	<p:layout id="out" >
-		<p:layoutUnit  position="center">
-				<ui:include src="#{usuarios.uri}" />
+
+	<p:layout id="out">
+		<p:layoutUnit position="center">
+			<ui:include src="#{usuarios.uri}" />
 		</p:layoutUnit>
 	</p:layout>
-	<!-- Componente del Menu principal -->
-	<ui:include src="Dialog.xhtml" />
-
+	
 </h:body>
 </html>

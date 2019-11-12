@@ -22,13 +22,14 @@
 	<!-- Header del bloque Usuarios -->
 	<p:panelGrid columns="3" layout="grid">
 		<p:commandButton value="Agregar" type="button" class="roundButton"
-			onclick="PF('userDialog').show()" title="Agregar usuario">
+			onclick="PF('userDialog').show()" title="Agregar usuario"
+			update=":dialogSave">
 		</p:commandButton>
 		<h1>USUARIOS</h1>
 	</p:panelGrid>
 
 	<!-- Tabla de datos de usuarios -->
-	<h:form id="form" style="padding:0.5%;">
+	<h:form id="formTable" style="padding:0.5%;">
 		<p:dataTable var="user" value="#{usuarios.listUsers}">
 			<p:column headerText="ID" style="width:20px">
 				<h:outputText value="#{user.id_user}" />
@@ -58,11 +59,83 @@
 				<h:outputText value="#{user.estado}" />
 			</p:column>
 			<p:column style="width:100px;text-align: center">
-				<p:commandButton update="" onclick="PF('userDialog').show()"
+				<p:commandButton
+					actionListener="#{usuarios.getItemUser(user.id_user)}"
+					update=":dialogForm" oncomplete="PF('userDialogUpdate').show()"
 					title="View" value="Editar">
 				</p:commandButton>
 			</p:column>
 		</p:dataTable>
 	</h:form>
 
+	<p:dialog header="Información de usuario" widgetVar="userDialogUpdate"
+		height="320" width="380" resizable="false">
+		<p:outputPanel id="dialogForm" style="text-align:center;">
+			<h:form>
+				<p:panelGrid columns="2" layout="grid"
+					columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
+
+					<h:outputLabel value="Nombre" />
+					<p:inputText value="#{usuarios.users.nombre}" required="true" />
+
+					<h:outputLabel value="Apellido" />
+					<p:inputText value="#{usuarios.users.apellido}" required="true" />
+
+					<h:outputLabel value="Correo" />
+					<p:inputText value="#{usuarios.users.email}" required="true" />
+
+					<h:outputLabel value="Username" />
+					<p:inputText value="#{usuarios.users.username}" required="true" />
+
+					<h:outputLabel value="Password" />
+					<p:inputText value="#{usuarios.users.password}" required="true" />
+
+					<h:outputLabel value="Estado" />
+					<p:inputText value="#{usuarios.users.estado}" required="true" />
+
+					<p:commandButton title="View" value="Actualizar"
+						action="#{usuarios.updateUser(usuarios.users.id_user)}"
+						oncomplete="PF('userDialogUpdate').hide();" update=":formTable">
+					</p:commandButton>
+
+					<p:commandButton title="View" value="Eliminar"
+						style=" margin-left:50px;"
+						action="#{usuarios.deleteUser(usuarios.users.id_user)}"
+						oncomplete="PF('userDialogUpdate').hide();" update=":formTable">
+					</p:commandButton>
+				</p:panelGrid>
+			</h:form>
+		</p:outputPanel>
+	</p:dialog>
+
+	<h:form>
+		<p:dialog header="Información de usuario" widgetVar="userDialog"
+			height="250" width="380" focus="name" resizable="false">
+			<p:outputPanel id="dialogSave" style="text-align:center;">
+				<p:panelGrid columns="2" layout="grid"
+					columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
+
+					<h:outputLabel value="Nombre" />
+					<p:inputText id="name" value="#{usuarios.nombre}" required="true" />
+
+					<h:outputLabel value="Apellido" />
+					<p:inputText value="#{usuarios.apellido}" required="true" />
+
+					<h:outputLabel value="Correo" />
+					<p:inputText value="#{usuarios.email}" required="true" />
+
+					<h:outputLabel value="Username" />
+					<p:inputText value="#{usuarios.username}" required="true" />
+
+					<h:outputLabel value="Password" />
+					<p:inputText value="#{usuarios.password}" required="true" />
+
+					<p:commandButton title="View" value="Guardar"
+						action="#{usuarios.saveUser}"
+						oncomplete="PF('userDialog').hide();" update=":formTable">
+					</p:commandButton>
+				</p:panelGrid>
+			</p:outputPanel>
+		</p:dialog>
+	</h:form>
 </ui:composition>
