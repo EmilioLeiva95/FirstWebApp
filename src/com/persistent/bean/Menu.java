@@ -18,9 +18,6 @@ public class Menu {
 	}
 
 	public void tabUsers() {
-		/*int a = (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("id");
-		String b = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("nombre");
-		System.out.println("aasddddd: " + b);*/
 		uri = "Usuarios.xhtml";
 	}
 

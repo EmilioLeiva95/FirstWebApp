@@ -1,0 +1,178 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<style type="text/css">
+.ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell {
+	text-align: center;
+	color: white;
+}
+
+.ui-widget-content {
+	border: none;
+}
+
+.roundButton {
+	border-radius: 15px;
+	margin-top: 4%;
+}
+</style>
+
+
+	<!-- Header del bloque Proveedores -->
+	<p:panelGrid columns="3" layout="grid">
+		<p:commandButton value="Agregar" type="button" class="roundButton"
+			onclick="PF('provDialog').show()" title="Agregar proveedor"
+			update=":dialogSave">
+		</p:commandButton>
+		<h1>PROVEEDORES</h1>
+	</p:panelGrid>
+
+
+	<!-- Tabla de datos de Proveedorres -->
+	<h:form id="formTableProve" style="padding:0.5%;">
+		<p:dataTable var="provider" value="#{proveedores.listProveedor}">
+			<p:column headerText="ID" style="width:20px">
+				<h:outputText value="#{provider.id_proveedor}" />
+			</p:column>
+			<p:column headerText="Descripción" style="width:170px">
+				<h:outputText value="#{provider.descripcion}" />
+			</p:column>
+			<p:column headerText="Pais" style="width:100px;">
+				<h:outputText value="#{provider.pais}" />
+			</p:column>
+			<p:column headerText="Representante"
+				style="width:180px;text-align: center">
+				<h:outputText value="#{provider.representante}" />
+			</p:column>
+			<p:column headerText="Direccion"
+				style="width:200px;text-align: center">
+				<h:outputText value="#{provider.direccion}" />
+			</p:column>
+			<p:column headerText="Contacto" style="width:200px">
+				<h:outputText value="#{provider.contacto}" />
+			</p:column>
+			<p:column headerText="Fecha Contrato"
+				style="width:100px;text-align: center">
+				<h:outputText value="#{provider.date_contrato}" />
+			</p:column>
+			<p:column headerText="Estado" style="width:70px;text-align: center">
+				<h:outputText value="#{provider.estado}" />
+			</p:column>
+			<p:column style="width:80px;text-align: center">
+				<p:commandButton
+					actionListener="#{proveedores.getItemProvider(provider.id_proveedor)}"
+					oncomplete="PF('provDialogUpdate').show()" title="View"
+					update=":dialogProvUpdate" value="Editar">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+
+	<h:form>
+		<p:dialog header="Información de proveedor" widgetVar="provDialog"
+			height="350" width="450" focus="name" resizable="false">
+			<p:outputPanel id="dialogSave" style="text-align:center;">
+				<p:panelGrid columns="2" layout="grid"
+					columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
+
+					<h:outputLabel value="Descripción" />
+					<p:inputText id="name" value="#{proveedores.provSave.descripcion}"
+						style="margin-left:30px;" required="true" />
+
+					<h:outputLabel value="Pais" />
+					<p:inputText value="#{proveedores.provSave.pais}" required="true"
+						style="margin-left:30px;" />
+
+					<h:outputLabel value="Representante" />
+					<p:inputText value="#{proveedores.provSave.representante}"
+						required="true" style="margin-left:30px;" />
+
+					<h:outputLabel value="Contacto" />
+					<p:inputText value="#{proveedores.provSave.contacto}"
+						required="true" style="margin-left:30px;" />
+
+					<h:outputLabel value="dirección" />
+					<p:inputText value="#{proveedores.provSave.direccion}"
+						required="true" style="margin-left:30px;" />
+
+					<h:outputLabel value="Contrato" />
+					<p:calendar id="datetime" value="#{proveedores.provSave.contrato}"
+						pattern="MM/dd/yyyy HH:mm:ss" required="true"
+						style="margin-left:30px;" />
+
+					<h:outputLabel value="Estado" />
+					<p:inputText value="#{proveedores.provSave.estado}" required="true"
+						style="margin-left:30px;" />
+
+
+					<p:commandButton title="View" value="Guardar"
+						style="margin-top:20px;" action="#{proveedores.saveProveedor}"
+						oncomplete="PF('provDialog').hide();" update=":formTableProve">
+					</p:commandButton>
+				</p:panelGrid>
+			</p:outputPanel>
+		</p:dialog>
+	</h:form>
+
+	<p:dialog header="Información de proveedor"
+		widgetVar="provDialogUpdate" height="350" width="450"
+		resizable="false">
+		<p:outputPanel id="dialogProvUpdate" style="text-align:center;">
+			<h:form>
+				<p:panelGrid columns="2" layout="grid"
+					columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
+
+					<h:outputLabel value="Descripción" />
+					<p:inputText id="name"
+						value="#{proveedores.provUpdate.descripcion}"
+						style="margin-left:30px;" required="true" />
+
+					<h:outputLabel value="Pais" />
+					<p:inputText value="#{proveedores.provUpdate.pais}" required="true"
+						style="margin-left:30px;" />
+
+					<h:outputLabel value="Representante" />
+					<p:inputText value="#{proveedores.provUpdate.representante}"
+						required="true" style="margin-left:30px;" />
+
+					<h:outputLabel value="Contacto" />
+					<p:inputText value="#{proveedores.provUpdate.contacto}"
+						required="true" style="margin-left:30px;" />
+
+					<h:outputLabel value="dirección" />
+					<p:inputText value="#{proveedores.provUpdate.direccion}"
+						required="true" style="margin-left:30px;" />
+
+					<h:outputLabel value="Contrato" />
+					<p:calendar id="datetime"
+						value="#{proveedores.provUpdate.date_contrato}"
+						pattern="MM/dd/yyyy HH:mm:ss" required="true"
+						style="margin-left:30px;" />
+
+					<h:outputLabel value="Estado" />
+					<p:inputText value="#{proveedores.provUpdate.estado}"
+						required="true" style="margin-left:30px;" />
+
+
+					<p:commandButton title="View" value="Actualizar"
+						style="margin-left:50px;margin-top:20px;"
+						action="#{proveedores.updateProvider(proveedores.provUpdate.id_proveedor)}"
+						oncomplete="PF('provDialogUpdate').hide();"
+						update=":formTableProve">
+					</p:commandButton>
+
+					<p:commandButton title="View" value="Eliminar"
+						style="margin-left:100px;margin-top:20px;"
+						action="#{proveedores.deleteProvider(proveedores.provUpdate.id_proveedor)}"
+						oncomplete="PF('provDialogUpdate').hide();"
+						update=":formTableProve">
+					</p:commandButton>
+				</p:panelGrid>
+			</h:form>
+		</p:outputPanel>
+	</p:dialog>
+
+</ui:composition>
