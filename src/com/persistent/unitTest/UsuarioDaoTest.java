@@ -11,12 +11,12 @@ import com.persistent.model.Usuario;
 
 class UsuarioDaoTest {
 
-	@Test
+/*	@Test
 	void testValidate() throws Exception {
 		UsuarioDao usr = new UsuarioDao();
 		boolean resultado = usr.validate("adUser", "R0ot$pass");
 		assertTrue(resultado);
-	}
+	}*/
 
 	@Test
 	void testallUsers() throws Exception {

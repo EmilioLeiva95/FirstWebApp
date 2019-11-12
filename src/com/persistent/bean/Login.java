@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import com.persistent.dao.UsuarioDao;
+import com.persistent.model.Usuario;
 import com.persistent.bean.Functions;
 
 @ManagedBean
@@ -17,12 +18,18 @@ public class Login {
 	public String validate() {
 		System.out.println("Dentro de funcion validate " + user + " " + pwd);
 		UsuarioDao data = new UsuarioDao();
+		Usuario s = new Usuario();
 		Functions f = new Functions();
 		try {
 			if (f.validateVoid(user) && f.validateVoid(pwd)) {
-				if (data.validate(user, pwd))
+				s = data.validate(user, pwd);
+				if (f.validateVoid(s.getNombre()) && f.validateVoid(s.getApellido())) {
+					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("id", s.getId_user());
+					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("nombre",
+							s.getNombre() + " " + s.getApellido());
 					return "Main.xhtml?faces-redirect=true";
-				else {
+
+				} else {
 					addMessage("Usuario invalido");
 					// return "";
 				}

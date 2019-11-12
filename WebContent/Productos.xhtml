@@ -1,0 +1,88 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<style type="text/css">
+.ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell {
+	text-align: center;
+	color: white;
+}
+
+.ui-widget-content {
+	border: none;
+}
+
+.roundButton {
+	border-radius: 15px;
+	margin-top: 4%;
+}
+</style>
+	<!-- Header del bloque Usuarios -->
+	<p:panelGrid columns="3" layout="grid">
+		<p:commandButton value="Agregar" type="button" class="roundButton"
+			onclick="PF('productDialog').show()" title="Agregar producto"
+			update=":dialogSave">
+		</p:commandButton>
+		<h1>PRODUCTOS</h1>
+	</p:panelGrid>
+
+
+	<h:form>
+		<p:dialog header="Información de Producto" widgetVar="productDialog"
+			height="350" width="450" focus="name" resizable="false">
+			<p:outputPanel id="dialogSave" style="text-align:center;">
+				<p:panelGrid columns="2" layout="grid"
+					columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
+
+					<h:outputLabel value="Descripción" />
+					<p:inputText id="name" value="#{productos.prodSave.descripcion}"
+						required="true" />
+
+					<h:outputLabel value="Precio" />
+					<p:inputText value="#{productos.prodSave.precio}" required="true" />
+
+					<h:outputLabel value="Código de barras" />
+					<p:inputText value="#{productos.prodSave.codigo_barras}"
+						required="true" />
+
+					<h:outputLabel value="Fabricante" />
+					<p:inputText value="#{productos.prodSave.fabricante}"
+						required="true" />
+
+					<h:outputLabel value="Estado" />
+					<p:inputText value="#{productos.prodSave.estado}" required="true" />
+
+					<h:outputLabel value="Existencia" />
+					<p:inputText value="#{productos.prodSave.existencia}"
+						required="true" />
+
+
+					<p:commandButton title="View" value="Guardar"
+						style="margin-top:20px;"
+						action="#{productos.saveProduct}"
+						oncomplete="PF('productDialog').hide();">
+					</p:commandButton>
+				</p:panelGrid>
+			</p:outputPanel>
+		</p:dialog>
+	</h:form>
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

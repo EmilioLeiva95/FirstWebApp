@@ -11,9 +11,9 @@ import com.persistent.model.Usuario;
 
 public class UsuarioDao extends DAO {
 
-	public boolean validate(String username, String password) throws Exception {
+	public Usuario validate(String username, String password) throws Exception {
 		ResultSet rs;
-
+		Usuario s = new Usuario();
 		try {
 			this.ConnectionPostgresql();
 			PreparedStatement st = this.getCnn()
@@ -22,8 +22,9 @@ public class UsuarioDao extends DAO {
 			st.setString(2, password);
 			rs = st.executeQuery();
 			if (rs.next()) {
-				System.out.println("Respuesta " + rs.getString(4));
-				return true;
+				s.setNombre(rs.getString("nombre"));
+				s.setApellido(rs.getString("apellido"));
+				s.setId_user(rs.getInt("id_user"));
 			}
 			this.closeDB();
 
@@ -31,7 +32,7 @@ public class UsuarioDao extends DAO {
 			System.out.println("Ocurrio un error USUARIO_DAO : " + e.getMessage());
 			throw e;
 		}
-		return false;
+		return s;
 	}
 
 	public List<Usuario> allUsers() throws Exception {
