@@ -55,7 +55,40 @@ public class Productos {
 		}
 	}
 
-	public void getItemProduct() {
+	public void getItemProduct(int id) {
+		ProductoDao data = new ProductoDao();
+		try {
+			prodUpdate = data.getProduct(id);
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error al obtener producto: " + e.getMessage());
+		}
+	}
+
+	public void updateProduct(int id) {
+		ProductoDao data = new ProductoDao();
+		try {
+			int idUser = (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("id");
+			String nameUser = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+					.get("nombre");
+
+			prodUpdate.setId_usu_mod(String.valueOf(idUser));
+			prodUpdate.setNom_usu_mod(nameUser);
+
+			data.updateProduct(prodUpdate, id);
+			this.listarAllProduct();
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error login : " + e.getMessage());
+		}
+	}
+
+	public void deleteProduct(int id) {
+		ProductoDao data = new ProductoDao();
+		try {
+			data.deleteProduct(id);
+			this.listarAllProduct();
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error login : " + e.getMessage());
+		}
 
 	}
 

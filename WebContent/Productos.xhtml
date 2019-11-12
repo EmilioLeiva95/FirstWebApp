@@ -59,9 +59,9 @@
 			</p:column>
 			<p:column style="width:100px;text-align: center">
 				<p:commandButton
-					actionListener="#{productos.getItemProduct(user.id_producto)}"
-					oncomplete="PF('userDialogUpdate').show()" title="View"
-					value="Editar">
+					actionListener="#{productos.getItemProduct(product.id_producto)}"
+					oncomplete="PF('prodDialogUpdate').show()" title="View"
+					update=":dialogFormUpdate" value="Editar">
 				</p:commandButton>
 			</p:column>
 		</p:dataTable>
@@ -106,6 +106,54 @@
 			</p:outputPanel>
 		</p:dialog>
 	</h:form>
+
+
+	<p:dialog header="Información de usuario" widgetVar="prodDialogUpdate"
+		height="350" width="450" resizable="false">
+		<p:outputPanel id="dialogFormUpdate" style="text-align:center;">
+			<h:form>
+				<p:panelGrid columns="2" layout="grid"
+					columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
+
+					<h:outputLabel value="Descripción" />
+					<p:inputText id="name" value="#{productos.prodUpdate.descripcion}"
+						required="true" />
+
+					<h:outputLabel value="Precio" />
+					<p:inputText value="#{productos.prodUpdate.precio}" required="true" />
+
+					<h:outputLabel value="Código de barras" />
+					<p:inputText value="#{productos.prodUpdate.codigo_barras}"
+						required="true" />
+
+					<h:outputLabel value="Fabricante" />
+					<p:inputText value="#{productos.prodUpdate.fabricante}"
+						required="true" />
+
+					<h:outputLabel value="Estado" />
+					<p:inputText value="#{productos.prodUpdate.estado}" required="true" />
+
+					<h:outputLabel value="Existencia" />
+					<p:inputText value="#{productos.prodUpdate.existencia}"
+						required="true" />
+
+					<p:commandButton title="View" value="Actualizar"
+						style="margin-left:50px;margin-top:20px;"
+						action="#{productos.updateProduct(productos.prodUpdate.id_producto)}"
+						oncomplete="PF('prodDialogUpdate').hide();"
+						update=":formTableProduct">
+					</p:commandButton>
+
+					<p:commandButton title="View" value="Eliminar"
+						style="margin-left:100px;margin-top:20px;"
+						action="#{productos.deleteProduct(productos.prodUpdate.id_producto)}"
+						oncomplete="PF('prodDialogUpdate').hide();"
+						update=":formTableProduct">
+					</p:commandButton>
+				</p:panelGrid>
+			</h:form>
+		</p:outputPanel>
+	</p:dialog>
 </ui:composition>
 
 
