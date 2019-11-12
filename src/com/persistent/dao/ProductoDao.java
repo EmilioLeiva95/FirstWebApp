@@ -1,12 +1,15 @@
 package com.persistent.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.persistent.model.Producto;
 
-
 public class ProductoDao extends DAO {
+
 	public void insertProduct(Producto p) throws Exception {
 		Timestamp fecha = new Timestamp(System.currentTimeMillis());
 		try {
@@ -37,23 +40,36 @@ public class ProductoDao extends DAO {
 			System.out.println("Ocurrio un error insert product : " + e.getMessage());
 			throw e;
 		}
+	}
 
+	public List<Producto> allProducts() throws Exception {
+		List<Producto> list = new ArrayList<Producto>();
+
+		ResultSet rs;
+
+		try {
+			this.ConnectionPostgresql();
+			PreparedStatement st = this.getCnn().prepareStatement("SELECT *FROM producto");
+
+			rs = st.executeQuery();
+			while (rs.next()) {
+				Producto pd = new Producto();
+				pd.setId_producto(rs.getInt("id_producto"));
+				pd.setDescripcion(rs.getString("descripcion"));
+				pd.setPrecio(rs.getFloat("precio"));
+				pd.setExistencia(rs.getInt("existencia"));
+				pd.setFabricante(rs.getString("fabricante"));
+				pd.setFec_ing(rs.getString("fec_ing"));
+				pd.setEstado(rs.getString("estado"));
+				pd.setCodigo_barras(rs.getString("codigo_barras"));
+				list.add(pd);
+			}
+			this.closeDB();
+
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error GET LIST PRODUCT : " + e.getMessage());
+			throw e;
+		}
+		return list;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

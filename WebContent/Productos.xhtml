@@ -28,6 +28,44 @@
 		<h1>PRODUCTOS</h1>
 	</p:panelGrid>
 
+	<!-- Tabla de datos de Productos -->
+	<h:form id="formTableProduct" style="padding:0.5%;">
+		<p:dataTable var="product" value="#{productos.listProducts}">
+			<p:column headerText="ID" style="width:20px">
+				<h:outputText value="#{product.id_producto}" />
+			</p:column>
+			<p:column headerText="Descripción" style="width:250px">
+				<h:outputText value="#{product.descripcion}" />
+			</p:column>
+			<p:column headerText="Precio" style="width:100px;">
+				<h:outputText value="#{product.precio}" />
+			</p:column>
+			<p:column headerText="Existencia"
+				style="width:80px;text-align: center">
+				<h:outputText value="#{product.existencia}" />
+			</p:column>
+			<p:column headerText="Código" style="width:100px;text-align: center">
+				<h:outputText value="#{product.codigo_barras}" />
+			</p:column>
+			<p:column headerText="Fabricante" style="width:200px">
+				<h:outputText value="#{product.fabricante}" />
+			</p:column>
+			<p:column headerText="Fecha Creación"
+				style="width:100px;text-align: center">
+				<h:outputText value="#{product.fec_ing}" />
+			</p:column>
+			<p:column headerText="Estado" style="width:80px;text-align: center">
+				<h:outputText value="#{product.estado}" />
+			</p:column>
+			<p:column style="width:100px;text-align: center">
+				<p:commandButton
+					actionListener="#{productos.getItemProduct(user.id_producto)}"
+					oncomplete="PF('userDialogUpdate').show()" title="View"
+					value="Editar">
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 
 	<h:form>
 		<p:dialog header="Información de Producto" widgetVar="productDialog"
@@ -60,9 +98,9 @@
 
 
 					<p:commandButton title="View" value="Guardar"
-						style="margin-top:20px;"
-						action="#{productos.saveProduct}"
-						oncomplete="PF('productDialog').hide();">
+						style="margin-top:20px;" action="#{productos.saveProduct}"
+						oncomplete="PF('productDialog').hide();"
+						update=":formTableProduct">
 					</p:commandButton>
 				</p:panelGrid>
 			</p:outputPanel>

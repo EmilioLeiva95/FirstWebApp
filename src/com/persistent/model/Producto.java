@@ -1,7 +1,5 @@
 package com.persistent.model;
 
-import java.sql.Timestamp;
-
 public class Producto {
 	private int id_producto;
 	private String descripcion;
@@ -12,10 +10,10 @@ public class Producto {
 	private int existencia;
 	private String id_usu_ing;
 	private String nom_usu_ing;
-	private Timestamp fec_ing;
+	private String fec_ing;
 	private String id_usu_mod;
 	private String nom_usu_mod;
-	private Timestamp fec_mod;
+	private String fec_mod;
 
 	public int getId_producto() {
 		return id_producto;
@@ -89,14 +87,6 @@ public class Producto {
 		this.nom_usu_ing = nom_usu_ing;
 	}
 
-	public Timestamp getFec_ing() {
-		return fec_ing;
-	}
-
-	public void setFec_ing(Timestamp fec_ing) {
-		this.fec_ing = fec_ing;
-	}
-
 	public String getId_usu_mod() {
 		return id_usu_mod;
 	}
@@ -113,11 +103,19 @@ public class Producto {
 		this.nom_usu_mod = nom_usu_mod;
 	}
 
-	public Timestamp getFec_mod() {
+	public String getFec_ing() {
+		return fec_ing;
+	}
+
+	public void setFec_ing(String fec_ing) {
+		this.fec_ing = fec_ing;
+	}
+
+	public String getFec_mod() {
 		return fec_mod;
 	}
 
-	public void setFec_mod(Timestamp fec_mod) {
+	public void setFec_mod(String fec_mod) {
 		this.fec_mod = fec_mod;
 	}
 

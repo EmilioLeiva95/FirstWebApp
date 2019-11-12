@@ -1,5 +1,7 @@
 package com.persistent.bean;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -13,6 +15,7 @@ import com.persistent.model.Producto;
 public class Productos {
 	private Producto prodSave = new Producto();
 	private Producto prodUpdate;
+	private List<Producto> listProducts;
 
 	public void saveProduct() {
 		ProductoDao data = new ProductoDao();
@@ -31,7 +34,8 @@ public class Productos {
 				prodSave.setNom_usu_mod(nameUser);
 
 				data.insertProduct(prodSave);
-
+				prodSave = new Producto();
+				this.listarAllProduct();
 			} else {
 				addMessage("Todos los campos son obligatorios");
 				System.out.println("Campo invalido");
@@ -39,6 +43,19 @@ public class Productos {
 		} catch (Exception e) {
 			System.out.println("Ocurrio un error login : " + e.getMessage());
 		}
+
+	}
+
+	public void listarAllProduct() {
+		try {
+			ProductoDao data = new ProductoDao();
+			listProducts = data.allProducts();
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error al intentar obtener usuarios: " + e.getMessage());
+		}
+	}
+
+	public void getItemProduct() {
 
 	}
 
@@ -61,6 +78,14 @@ public class Productos {
 
 	public void setProdUpdate(Producto prodUpdate) {
 		this.prodUpdate = prodUpdate;
+	}
+
+	public List<Producto> getListProducts() {
+		return listProducts;
+	}
+
+	public void setListProducts(List<Producto> listProducts) {
+		this.listProducts = listProducts;
 	}
 
 }

@@ -18,8 +18,11 @@
 			</p:submenu>
 
 			<p:submenu label="Producto">
-				<p:menuitem value="Productos" update="out" action="#{menu.tabProductos}" />
-				<p:menuitem value="Proveedores" update="out" action="#{menu.tabProveedores}" />
+				<p:menuitem value="Productos"
+					actionListener="#{productos.listarAllProduct}" update="out"
+					action="#{menu.tabProductos}" />
+				<p:menuitem value="Proveedores" update="out"
+					action="#{menu.tabProveedores}" />
 			</p:submenu>
 
 			<f:facet name="options">
