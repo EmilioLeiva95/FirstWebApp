@@ -9,9 +9,12 @@
 		<p:growl id="messages" />
 		<p:menubar style="background: #c7394c;padding:1%;">
 			<p:submenu label="Usuarios" style="background: #c7394c;">
-				<p:menuitem value="Usuarios" update="out" action="#{usuarios.listarUsers}" />
-				<p:menuitem value="Roles" url="#" />
-				<p:menuitem value="Permisos" url="#" />
+
+				<p:menuitem value="Usuarios" update="out"
+					actionListener="#{usuarios.listarUsers}" action="#{menu.tabUsers}" />
+				<p:menuitem value="Roles" update="out" action="#{menu.tabRoles}" />
+				<p:menuitem value="Permisos" update="out"
+					action="#{menu.tabPermisos}" />
 			</p:submenu>
 
 			<p:submenu label="Producto">

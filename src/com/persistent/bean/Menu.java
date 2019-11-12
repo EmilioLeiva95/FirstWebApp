@@ -1,10 +1,12 @@
 package com.persistent.bean;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
+@SessionScoped
 public class Menu {
-	private String uri;
+	private String uri ;
 
 	public String getUri() {
 		return uri;
@@ -16,5 +18,13 @@ public class Menu {
 
 	public void tabUsers() {
 		uri = "Usuarios.xhtml";
+	}
+
+	public void tabRoles() {
+		uri = "Roles.xhtml";
+	}
+
+	public void tabPermisos() {
+		uri = "Permisos.xhtml";
 	}
 }

@@ -69,7 +69,7 @@
 	</h:form>
 
 	<p:dialog header="Información de usuario" widgetVar="userDialogUpdate"
-		height="320" width="380" resizable="false">
+		height="360" width="380" resizable="false">
 		<p:outputPanel id="dialogForm" style="text-align:center;">
 			<h:form>
 				<p:panelGrid columns="2" layout="grid"
@@ -94,12 +94,13 @@
 					<p:inputText value="#{usuarios.users.estado}" required="true" />
 
 					<p:commandButton title="View" value="Actualizar"
+						style="margin-left:50px;margin-top:20px;"
 						action="#{usuarios.updateUser(usuarios.users.id_user)}"
 						oncomplete="PF('userDialogUpdate').hide();" update=":formTable">
 					</p:commandButton>
 
 					<p:commandButton title="View" value="Eliminar"
-						style=" margin-left:50px;"
+						style="margin-left:100px;margin-top:20px;"
 						action="#{usuarios.deleteUser(usuarios.users.id_user)}"
 						oncomplete="PF('userDialogUpdate').hide();" update=":formTable">
 					</p:commandButton>
