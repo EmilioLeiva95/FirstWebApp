@@ -3,6 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
 	<style type="text/css">
 .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell {
 	text-align: center;
@@ -18,7 +19,7 @@
 	margin-top: 4%;
 }
 </style>
-	<!-- Header del bloque Proveedores -->
+	<!-- Header del bloque Usuarios -->
 	<p:panelGrid columns="3" layout="grid">
 		<p:commandButton value="Agregar" type="button" class="roundButton"
 			onclick="PF('provDialog').show()" title="Agregar proveedor"
@@ -27,11 +28,9 @@
 		<h1>PROVEEDORES</h1>
 	</p:panelGrid>
 
-
-	<!-- Tabla de datos de Proveedorres -->
-	<h:form id="form">
-		<p:dataTable id="formTableProve" var="provider"
-			value="#{proveedores.listProveedor}">
+	<!-- Tabla de datos de Productos -->
+	<h:form id="formTableProve" style="padding:0.5%;">
+		<p:dataTable var="provider" value="#{proveedores.listProveedor}">
 			<p:column headerText="ID" style="width:20px">
 				<h:outputText value="#{provider.id_proveedor}" />
 			</p:column>
@@ -63,12 +62,13 @@
 				<p:commandButton
 					actionListener="#{proveedores.getItemProvider(provider.id_proveedor)}"
 					oncomplete="PF('provDialogUpdate').show()" title="View"
-					update=":form:dialogProvUpdate" value="Editar">
+					update=":dialogProvUpdate" value="Editar">
 				</p:commandButton>
 			</p:column>
 		</p:dataTable>
+	</h:form>
 
-
+	<h:form>
 		<p:dialog header="Información de proveedor" widgetVar="provDialog"
 			height="350" width="450" focus="name" resizable="false">
 			<p:outputPanel id="dialogSave" style="text-align:center;">
@@ -107,16 +107,19 @@
 
 					<p:commandButton title="View" value="Guardar"
 						style="margin-top:20px;" action="#{proveedores.saveProveedor}"
-						oncomplete="PF('provDialog').hide();" update=":form:formTableProve">
+						oncomplete="PF('provDialog').hide();"
+						update=":formTableProve">
 					</p:commandButton>
 				</p:panelGrid>
 			</p:outputPanel>
 		</p:dialog>
+	</h:form>
 
-		<p:dialog header="Información de proveedor"
-			widgetVar="provDialogUpdate" height="350" width="450"
-			resizable="false">
-			<p:outputPanel id="dialogProvUpdate" style="text-align:center;">
+
+	<p:dialog header="Información de producto" widgetVar="provDialogUpdate"
+		height="350" width="450" resizable="false">
+		<p:outputPanel id="dialogProvUpdate" style="text-align:center;">
+			<h:form>
 				<p:panelGrid columns="2" layout="grid"
 					columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
 
@@ -140,30 +143,42 @@
 					<p:inputText value="#{proveedores.provUpdate.direccion}"
 						required="true" style="margin-left:30px;" />
 
-				
-
 					<h:outputLabel value="Estado" />
 					<p:inputText value="#{proveedores.provUpdate.estado}"
 						required="true" style="margin-left:30px;" />
 
-
 					<p:commandButton title="View" value="Actualizar"
 						style="margin-left:50px;margin-top:20px;"
 						action="#{proveedores.updateProvider(proveedores.provUpdate.id_proveedor)}"
-						immediate="true" oncomplete="PF('provDialogUpdate').hide()"
-						update=":form:formTableProve">
+						oncomplete="PF('provDialogUpdate').hide()"
+						update=":formTableProve">
 					</p:commandButton>
 
 					<p:commandButton title="View" value="Eliminar"
 						style="margin-left:100px;margin-top:20px;"
 						action="#{proveedores.deleteProvider(proveedores.provUpdate.id_proveedor)}"
-						immediate="true" oncomplete="PF('provDialogUpdate').hide()"
-						update=":form:formTableProve">
+						oncomplete="PF('provDialogUpdate').hide()"
+						update=":formTableProve">
 					</p:commandButton>
-
 				</p:panelGrid>
-
-			</p:outputPanel>
-		</p:dialog>
-	</h:form>
+			</h:form>
+		</p:outputPanel>
+	</p:dialog>
 </ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

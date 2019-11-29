@@ -16,6 +16,7 @@ public class Productos {
 	private Producto prodSave = new Producto();
 	private Producto prodUpdate;
 	private List<Producto> listProducts;
+	private String search;
 
 	public void saveProduct() {
 		ProductoDao data = new ProductoDao();
@@ -91,6 +92,12 @@ public class Productos {
 		}
 
 	}
+	
+	public void onSearch() {
+		System.out.println("Valor : " + search);
+		
+	}
+	
 
 	public void addMessage(String summary) {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, null);
@@ -120,5 +127,14 @@ public class Productos {
 	public void setListProducts(List<Producto> listProducts) {
 		this.listProducts = listProducts;
 	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	
 
 }

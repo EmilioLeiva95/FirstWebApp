@@ -6,7 +6,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.persistent.model.Producto;
 import com.persistent.model.Proveedor;
 
 public class ProveedorDao extends DAO {
@@ -104,12 +103,12 @@ public class ProveedorDao extends DAO {
 		return pv;
 	}
 
-	public void updateProvider(Proveedor pv, int id) throws Exception {
+	public void updateItemProvider(Proveedor pv, int id) throws Exception {
 		Timestamp fecha = new Timestamp(System.currentTimeMillis());
 		try {
 			this.ConnectionPostgresql();
 			PreparedStatement st = this.getCnn().prepareStatement(
-					"UPDATE proveedor SET descripcion=?,pais=?,representante=?,contacto=?,dirección=?,contrato=?,"
+					"UPDATE proveedor SET descripcion=?,pais=?,representante=?,contacto=?,dirección=?,estado=?,"
 							+ "id_usu_mod=?,nom_usu_mod=?,fec_mod=? WHERE id_proveedor=?");
 
 			st.setString(1, pv.getDescripcion());
@@ -118,20 +117,36 @@ public class ProveedorDao extends DAO {
 			st.setString(4, pv.getContacto());
 
 			st.setString(5, pv.getDireccion());
-			st.setString(6, pv.getDate_contrato());
-			st.setString(7, pv.getEstado());
+			// st.setTimestamp(6, new Timestamp(pv.getContrato().getTime()));
+			st.setString(6, pv.getEstado());
 
-			st.setString(11, pv.getId_usu_mod());
-			st.setString(12, pv.getNom_usu_mod());
-			st.setTimestamp(13, fecha);
+			st.setString(7, pv.getId_usu_mod());
+			st.setString(8, pv.getNom_usu_mod());
+			st.setTimestamp(9, fecha);
 
+			st.setInt(10, id);
 			st.executeUpdate();
 
 			this.closeDB();
 
 		} catch (Exception e) {
-			System.out.println("Ocurrio un error updateProduct : " + e.getMessage());
+			System.out.println("Ocurrio un error updateProvider : " + e.getMessage());
 			throw e;
 		}
+	}
+
+	public void deleteProvider(int id) throws Exception {
+		try {
+			this.ConnectionPostgresql();
+			PreparedStatement st = this.getCnn().prepareStatement("DELETE FROM proveedor WHERE id_proveedor=?");
+			st.setInt(1, id);
+			st.executeUpdate();
+			this.closeDB();
+
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error deleteProduct : " + e.getMessage());
+			throw e;
+		}
+
 	}
 }

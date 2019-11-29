@@ -34,6 +34,7 @@ public class Menu {
 	}
 
 	public void tabProveedores() {
-		uri = "Proveedores.xhtml";
+		//uri = "Proveedores.xhtml";
+		uri = "Provider.xhtml";
 	}
 }

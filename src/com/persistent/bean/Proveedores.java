@@ -7,7 +7,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import com.persistent.dao.ProductoDao;
 import com.persistent.dao.ProveedorDao;
 import com.persistent.model.Proveedor;
 
@@ -56,6 +55,7 @@ public class Proveedores {
 	}
 
 	public void getItemProvider(int id) {
+		System.out.println("getItemProvider: " + id);
 		ProveedorDao data = new ProveedorDao();
 		try {
 			provUpdate = data.getProvider(id);
@@ -64,7 +64,8 @@ public class Proveedores {
 		}
 	}
 
-	public void updateProduct(int id) {
+	public void updateProvider(int id) {
+		System.out.println("updateProvider: " + id);
 		ProveedorDao data = new ProveedorDao();
 		try {
 			int idUser = (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("id");
@@ -73,19 +74,20 @@ public class Proveedores {
 
 			provUpdate.setId_usu_mod(String.valueOf(idUser));
 			provUpdate.setNom_usu_mod(nameUser);
-
-			data.updateProvider(provUpdate, id);
+			data.updateItemProvider(provUpdate, id);
 			this.listarAllProviders();
 		} catch (Exception e) {
-			System.out.println("Ocurrio un error login : " + e.getMessage());
+			System.out.println("updateProvider: " + e);
 		}
 	}
 
-	public void deleteProduct(int id) {
+	public void deleteProvider(int id) {
+		System.out.println("deleteProvider: " + id);
+
 		ProveedorDao data = new ProveedorDao();
 		try {
-			// data.deleteProduct(id);
-
+			data.deleteProvider(id);
+			this.listarAllProviders();
 		} catch (Exception e) {
 			System.out.println("Ocurrio un error login : " + e.getMessage());
 		}
