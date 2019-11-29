@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class Menu {
-	private String uri;
+	private String uri="WelcomePersistent.xhtml";
 
 	public String getUri() {
 		return uri;
