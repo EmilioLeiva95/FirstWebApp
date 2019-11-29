@@ -94,6 +94,11 @@ public class Productos {
 	}
 	
 	public void onSearch() {
+		System.out.println("Valor : ");
+		
+	}
+	
+	public void buscar() {
 		System.out.println("Valor : " + search);
 		
 	}

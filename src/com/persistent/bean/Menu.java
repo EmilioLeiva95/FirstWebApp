@@ -30,7 +30,7 @@ public class Menu {
 	}
 
 	public void tabProductos() {
-		uri = "Productos.xhtml";
+		uri = "Products.xhtml";
 	}
 
 	public void tabProveedores() {
